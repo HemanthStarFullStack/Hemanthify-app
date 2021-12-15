@@ -8,7 +8,9 @@ router.get('/profile', users_controller.profile);
 
 router.get('/sign-up',users_controller.signUp);
 router.get('/sign-in',users_controller.signIn);
+router.get('/sign-out',users_controller.signOut);
 
 router.post('/create',users_controller.create);
+router.post('/create-session',users_controller.createSession);
 
 module.exports = router;
