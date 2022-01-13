@@ -12,5 +12,6 @@ db.once('open',function(){
 
 });
 
-mongoose.exports = db;
+module.exports = db;
 
+ 
