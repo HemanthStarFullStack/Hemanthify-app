@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
+const User = require('./user');
 
 const posts = new mongoose.Schema({
     content:{
         type:String,
         required:true
     },
-    user:{
+    user: {
         type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
-    }
+        ref: 'User'
+    } 
 },{
     timestamps: true
 });

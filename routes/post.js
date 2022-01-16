@@ -1,10 +1,12 @@
 const express = require('express');
 
-const router = express.Router()
+const router = express.Router();
+
+const passport = require("../config/passport-local")
 
 const address =require('../controllers/post_controller');
 
 
-router.get('/post_data',address.posts);
+router.post('/post_data',passport.checkAuthentication,address.posts);
 
 module.exports= router;
