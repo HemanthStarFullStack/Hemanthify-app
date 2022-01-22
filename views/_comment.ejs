@@ -1,0 +1,20 @@
+<div>
+    <p>
+        <ul> 
+            <%for (comment of post.comments){%>
+                <li> 
+                    <small>
+                        <%if(locals.user && locals.user.id == comment.user.id){%>
+                            <a href="/comments/deleteComment/?id=<%=comment.id%>" class="deleteButton">X</a>
+                        <%}%>
+                        <%=comment.user.name%>
+                        <br>
+                        <%=comment.content%>
+                        <br>
+
+                    </small>
+                </li>
+            <%}%>
+        </ul>
+    </p>
+</div>

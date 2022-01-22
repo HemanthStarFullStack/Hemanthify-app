@@ -1,22 +1,28 @@
 const post = require("../models/post");
-module.exports.home = function(req,res){
-    // console.log(req.cookies);
-    // res.cookie('user_id',35)
-    // return res.render('home',{
-    //     title:'home'
-
-    // });
-    post.find({}).populate('user').exec(function(err,postData){
-        // if(!req.isAuthenticated()){
-        //     return res.redirect("/users/sign-in");
-        // }
-       
+const user = require("../models/user");
+module.exports.home = async function(req,res){
+    try{
+        let postData = await post.find({})
+        .populate({path:'user'})
+        .populate({
+            path:'comments',
+            populate:{
+                path:'user'
+            }
+        });
+        let userData = await user.find({});
         return res.render('home',{
             title:'Hemanthify Feed',
             posts:postData,
-        })
+            users:userData
+        });
 
-    });
+    }catch(err){
+        console.log(err);
+        return;
+    }
+    
+     
 }
 
 // (common syntax)module.exports.action = function(req,res)

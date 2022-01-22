@@ -9,4 +9,5 @@ const address =require('../controllers/post_controller');
 
 router.post('/post_data',passport.checkAuthentication,address.posts);
 
-module.exports= router;
+router.get('/delete_post',passport.checkAuthentication,address.destroy);
+module.exports= router; 

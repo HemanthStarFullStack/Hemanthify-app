@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="../css/header.css">
+<link rel="stylesheet" type="text/css" href="/css/header.css">
 <header id="layout-header">
     <nav>
         <div class="mini-logo">
@@ -13,7 +13,7 @@
             <ul>
                 <% if (locals.user){ %>
                 <li>
-                    <a href="/users/profile"><%= user.name %></a>
+                    <a href="/users/profile/<%=user.id%>"><%= user.name %></a>
                 </li>
                 <li>
                     <a href="/users/sign-out">Sign Out</a>

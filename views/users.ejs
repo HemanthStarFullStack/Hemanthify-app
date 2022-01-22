@@ -1,8 +1,17 @@
 
-<link rel="stylesheet" href="../css/user_profile.css">
+<link rel="stylesheet" href="/css/user_profile.css">
 <h1>
     <%=title%>
 </h1>
-<p><%= user.name%></p>
-<p><%= user.email%></p>
- 
+<p><%= users_profile.name%></p>
+<p><%= users_profile.email%></p>
+
+
+<%if(locals.user.id ==  users_profile.id){%>
+    <h3>Edit Crdentials</h3>
+    <form action="/users/update/<%=users_profile.id%>" method="post">
+        <input type="text" name="name" placeholder="Your Name" value="<%=users_profile.name%>">
+        <input type="email" name="email" placeholder="Your Email" value="<%=users_profile.email%>">
+        <button>Update</button>
+    </form>
+<%}%>

@@ -1,9 +1,24 @@
 const User = require("../models/user")
 module.exports.profile = function(req,res){
-     
-    return res.render('users',{
-        title:"usersArea"
+    User.findById(req.params.id , function(err,user){
+        return res.render('users',{
+            title:"Profile",
+            users_profile:user
+
+        });
+
     });
+    
+}
+module.exports.update = function(req,res){
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body ,function(err,user){
+            res.redirect('back');
+        })
+    }
+    else{
+        return res.status(401).send("Unauthorizerd");
+    }
 }
 
 module.exports.signUp = function(req,res){
@@ -37,7 +52,9 @@ module.exports.create = function(req,res){
             return;
         }
         if(!user){
+            console.log(req.body);
             User.create(req.body,function(err,user){
+                console.log(user);
                 if(err){
                     console.log('sign up error');
                     return;
@@ -53,7 +70,7 @@ module.exports.create = function(req,res){
 
 }
 module.exports.createSession = function(req,res){
-    return res.redirect("/users/profile");
+    return res.redirect(`/users/profile/${req.user.id}`);
 }
 
 module.exports.destroySesson = function(req,res){

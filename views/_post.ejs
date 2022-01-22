@@ -1,0 +1,23 @@
+<li>
+    <p> 
+        <%if(locals.user && locals.user.id == post.user.id){%>
+            <a href="/post/delete_post/?id=<%=post.id%>">X</a>
+        <%}%>
+        <%= post.content %>
+        <br>
+        <%= post.user.name%>
+        
+        <div> 
+            <%if(locals.user) {%>
+                <form action="/comments/update" method="POST">
+                    <input type="text" name= "content" placeholder="add comment">
+                    <input type="hidden" name ="post" value="<%=post._id%>">
+                    <input type="submit" value="add Comment">
+                </form>
+                 
+            <%}%>
+            <%-include('_comment')-%>
+ 
+        </div>
+    </p>
+</li>

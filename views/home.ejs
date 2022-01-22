@@ -1,21 +1,30 @@
-<h1>Hemanthify / <%=title%></h1>
-<section id = "hemanthIfyPosts">
-    <h4>Posts</h4>
-    <%if (locals.user) {%>
-    <form action="/post/post_data" id="postForm" method="POST">
-        <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
-        <input type="submit" value="Post">
-    </form>
-    <%}%>
-    <ul>
-        <% for (i of posts) {%>
-            <li>
-                <p> 
-                    <%= i.content %>
-                    <br>
-                    <%= i.user.name%>
-                </p>
-            </li>
+<link rel="stylesheet" href="/css/home.css">
+<div id="homeDisplay">
+    <section id = "hemanthifyPosts">
+        <h4>Posts</h4>
+        <%if (locals.user) {%>
+        <form action="/post/post_data" id="postForm" method="POST">
+            <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
+            <input type="submit" value="Post">
+        </form>
         <%}%>
-    </ul>
-</section>
+        <ul>
+            <% for (post of posts) {%>
+                 <%-include ('_post')-%>
+            <%}%>
+        </ul>
+    </section>
+    
+    <section id="userFriends">
+        <h4>
+            Friends
+        </h4>
+        <% for (u of users){%>
+            <p>
+                <a href="users/profile/<%=u.id%>"><%=u.name%></a>
+            </p>
+        <%}%>
+    </section>
+
+</div>
+ 
