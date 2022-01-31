@@ -11,18 +11,9 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local");
 const MongoStore = require('connect-mongo');
-// const sassMiddleware = require("node-sass-middleware");
-const path = require('path');
-const sass = require('node-sass');
-// app.use(sassMiddleware({
-//     // src: "./assets/scss",
-//     src:path.join(__dirname,'/assets','scss'),
-//     // dest:"./assets/css",
-//     dest:path.join(__dirname,'/assets/css','css'),
-//     debug:true,
-//     outputStyle:'extended',
-//     prefix:'/css'
-// }));
+const flash = require("connect-flash");
+const customMW = require("./config/customMW");
+ 
 app.use(express.urlencoded());
 app.use(cookieParser());
 app.use(express.static('./assets'));
@@ -31,6 +22,7 @@ app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 app.set('view engine','ejs');
 app.set('views','./views');
+
 app.use(session({
     name:'Hemanthify',
     secret:"something",
@@ -52,16 +44,19 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticated);
-//to use the routes file
+app.use(flash());
+app.use(customMW.FlashSetUp);
+ 
 app.use('/',require('./routes'));
 
 
 
-
+ 
 app.listen(port,function(err){
     if(err){
         console.log(`server end error: ${err}`);
 
     }
     console.log(`sucessful at ${port}`);
+    
 })

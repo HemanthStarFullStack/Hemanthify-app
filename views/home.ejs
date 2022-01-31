@@ -1,14 +1,15 @@
 <link rel="stylesheet" href="/css/home.css">
+ 
 <div id="homeDisplay">
     <section id = "hemanthifyPosts">
         <h4>Posts</h4>
         <%if (locals.user) {%>
         <form action="/post/post_data" id="postForm" method="POST">
             <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
-            <input type="submit" value="Post">
+            <button>Submit</button>
         </form>
         <%}%>
-        <ul>
+        <ul id="post-list">
             <% for (post of posts) {%>
                  <%-include ('_post')-%>
             <%}%>
@@ -25,6 +26,8 @@
             </p>
         <%}%>
     </section>
-
+     
 </div>
+<script src="/js/home_posts.js"></script>  
+<script src="/js/comments.js"></script> 
  

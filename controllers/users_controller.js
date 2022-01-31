@@ -1,4 +1,4 @@
-const User = require("../models/user")
+const User = require("../models/user");
 module.exports.profile = function(req,res){
     User.findById(req.params.id , function(err,user){
         return res.render('users',{
@@ -10,8 +10,15 @@ module.exports.profile = function(req,res){
     });
     
 }
-module.exports.update = function(req,res){
+module.exports.update = async function(req,res){
     if(req.user.id == req.params.id){
+        try{
+
+        }catch(err){
+            req.flash('error',err);
+            return res.redirect('back');
+
+        }
         User.findByIdAndUpdate(req.params.id,req.body ,function(err,user){
             res.redirect('back');
         })
@@ -41,39 +48,29 @@ module.exports.signIn = function(req,res){
     })
 }
 
-module.exports.create = function(req,res){
-    console.log("body",req.body);
+module.exports.create = async function(req,res){
+   
     if(req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }
-    User.findOne({email:req.body.email},function(err,user){
-        if(err){
-            console.log('not found');
-            return;
-        }
-        if(!user){
-            console.log(req.body);
-            User.create(req.body,function(err,user){
-                console.log(user);
-                if(err){
-                    console.log('sign up error');
-                    return;
-                }
-                return res.redirect('/users/sign-in');
-            })
-        }
-        else{
+    let user =await User.findOne({email:req.body.email});
+    if(!user){
+        console.log(req.body);
+        newUser = await User.create(req.body);
+        return res.redirect('/users/sign-in');
+    }else{
             return res.redirect('back');
 
-        }
-    });
-
+    }
 }
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged in Successfully');
     return res.redirect(`/users/profile/${req.user.id}`);
+
 }
 
 module.exports.destroySesson = function(req,res){
     req.logout();
+    req.flash('success','Logged out Successfully');
     return res.redirect("/");
 }

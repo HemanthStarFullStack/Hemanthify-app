@@ -9,9 +9,10 @@
 
 <%if(locals.user.id ==  users_profile.id){%>
     <h3>Edit Crdentials</h3>
-    <form action="/users/update/<%=users_profile.id%>" method="post">
+    <form action="/users/update/<%=users_profile.id%>" enctype="multipart/form-data" method="post">
         <input type="text" name="name" placeholder="Your Name" value="<%=users_profile.name%>">
         <input type="email" name="email" placeholder="Your Email" value="<%=users_profile.email%>">
+        <input type="file" name="avatar" placeholder="profile-pic">
         <button>Update</button>
     </form>
 <%}%>
