@@ -20,8 +20,9 @@ module.exports.ForgotMailAuthForPass = async function(req,res){
             accessToken:crypto.randomBytes(20).toString('hex'),
             isValid : true
         });
-        await forgotMailer.newForgotMail(id)
+        await forgotMailer.newForgotMail(id);
         req.flash('success','mail sent');
+         
         return res.redirect('back');
     }
     

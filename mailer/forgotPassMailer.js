@@ -11,11 +11,13 @@ exports.newForgotMail = (job)=>{
         subject:"New Password Link",
         html: htmlString
     },(err,info)=>{
+         
         if(err){
             console.log(err);
             return;
         }
         console.log('message sent');
+         
         return;
     });
 }
