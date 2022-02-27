@@ -10,7 +10,6 @@ module.exports.posts = async function(req,res){
         
         if(req.xhr){
             await post.populate('user');
-             
             return res.status(200).json({
 
                 data:{

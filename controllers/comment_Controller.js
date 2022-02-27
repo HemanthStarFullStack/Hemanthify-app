@@ -1,6 +1,8 @@
-
 const comment = require('../models/comments');
 const post = require('../models/post');
+const commentMailer  = require("../mailer/comment-mailer");
+const commentEmailWorker = require("../workers/commentEmailWorker");
+const queue = require('../config/kue');
 
 module.exports.comment_section  = async function(req,res)
 {   
@@ -16,15 +18,23 @@ module.exports.comment_section  = async function(req,res)
                     post:req.body.post,
                     user:req.user
                 });
-                console.log(commentNew);
-                console.log("xhr",req.xhr);
-                console.log(commentNew._id);
+                
                 
                 postData.comments.push(commentNew);
                 postData.save();
-                 
+                await commentNew.populate('user');
+                let job = queue.create('emails',commentNew).save(function(err){
+                    if(err){
+                        console.log(err);
+                        return;
+                    }
+                    console.log(job.id,"job enqueued");
+
+                });
+                
+
                 if(req.xhr){
-                    await commentNew.populate('user');
+                     
                     
                     return res.status(200).json({
                         data:{
@@ -37,7 +47,7 @@ module.exports.comment_section  = async function(req,res)
                     })
                     
                 }
-                
+                req.flash('success',"comment Added");
                 res.redirect("/");
                 
         }
@@ -67,6 +77,7 @@ module.exports.commentDeletion = async function(req,res){
                         message:"commentDeleted"
                     });
                 }
+                req.flash('error',"comment Deleted")
                 return res.redirect('back');
         }
         else{

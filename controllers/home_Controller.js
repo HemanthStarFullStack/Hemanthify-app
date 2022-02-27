@@ -11,10 +11,7 @@ module.exports.home = async function(req,res){
                 path:'user'
             }
         });
-         
         let userData = await user.find({});
-         
-        
         return res.render('home',{
             title:'Hemanthify Feed',
             posts:postData,

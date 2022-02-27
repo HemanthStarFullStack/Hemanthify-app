@@ -28,13 +28,14 @@
         <%-  include('_footer'); -%>
         
             <%if(flash.success && flash.success.length>0){%>
+                 
                 <script> 
                     new Noty({
                         theme:'relax',
                         text: '<%=flash.success%>',
                         type:'success',
                         layout:'topRight',
-                        timeout:10000
+                        timeout:1000
                     }).show();
                 </script>
             <%}%>
@@ -45,7 +46,7 @@
                         text: '<%=flash.error%>',
                         type:'error',
                         layout:'topRight',
-                        timeout:10000
+                        timeout:1000
 
                     }).show();
                 </script>

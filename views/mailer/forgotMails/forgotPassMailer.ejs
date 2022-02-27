@@ -1,0 +1,15 @@
+ 
+<%
+function linkMaker(job){
+    return job.accessToken
+}
+%>
+<div>
+    <p>
+        Hi 
+    </p>
+    <p>
+        <h3>Link</h3>
+        <a href=`http://localhost:8000/users/forgotPassword/<%=linkMaker(job)%>`>click This</a> 
+    </p>
+</div>
