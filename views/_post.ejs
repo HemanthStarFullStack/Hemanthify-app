@@ -5,6 +5,10 @@
         <%}%>
         <%= post.content %>
         <br>
+        <%if(post.avatarPath){%>
+            <img src="<%=post.avatarPath%>" alt="Image Error" width="200" height="150">
+        <%}%>
+        <br>
         <%= post.user.name%>
             <div>
                 <small>

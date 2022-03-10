@@ -3,7 +3,7 @@ const fs = require("fs");
 const path  = require('path');
 module.exports.profile = function(req,res){
     User.findById(req.params.id , function(err,user){
-        console.log(user);
+       
         return res.render('users',{
             title:"Profile",
             users_profile:user
@@ -11,10 +11,9 @@ module.exports.profile = function(req,res){
         });
 
     });
-    
 }
 module.exports.update = async function(req,res){
-    console.log(req.body);
+    console.log("*******************************",req.file);
     if(req.user.id == req.params.id){
         try{
             let user = await User.findById(req.params.id);
@@ -91,9 +90,7 @@ module.exports.create = async function(req,res){
 module.exports.createSession = function(req,res){
     req.flash('success','Logged in Successfully');
     return res.redirect(`/users/profile/${req.user.id}`);
-
 }
-
 module.exports.destroySesson = function(req,res){
     req.logout();
     req.flash('success','Logged out Successfully');

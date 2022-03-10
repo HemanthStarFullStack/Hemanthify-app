@@ -3,28 +3,37 @@ const comment = require("../models/comments");
 
 module.exports.posts = async function(req,res){
     try{
-         
-        console.log(req.file);
-        let post = await Post.create({
-            content:req.body.content,
-            user:req.user._id
-        });
-        if(req.xhr){
-            await post.populate('user');
-            return res.status(200).json({
-
-                data:{
-                    postUserName:post.user.name,
-                    postContent:post.content,
-                    postId:post._id
-                },
-                message:"post Created"
-            })
-        }
-         
-
-        req.flash('success','Posted');
-        return res.redirect('back');
+        console.log(req.body);
+        Post.uploadPicture(req,res,async function(err){
+            if(err){
+                console.log("***********",err);
+                return;
+            }
+            let post = await Post.create({
+                content:req.body.content,
+                user:req.user._id,
+            });
+            if(req.file){
+                post.avatarPath  = Post.aPath + '/' + req.file.filename;
+            }
+            post.save();
+            console.log(req.xhr);
+            if(req.xhr){
+                await post.populate('user');
+                return res.status(200).json({
+                    data:{
+                        postUserName:post.user.name,
+                        postContent:post.content,
+                        postId:post._id,
+                        postAvatar:post.avatarPath
+                    },
+                    message:"post Created"
+                })
+            }
+            req.flash('success','Posted');
+            return res.redirect('back');
+        })
+        
 
     }catch(err){
         req.flash('err',err);

@@ -32,13 +32,15 @@ const posts = new mongoose.Schema({
     timestamps: true
 });
 let storage = multer.diskStorage({
-    destination: function(req,res,cb){
+    destination: function(req,file,cb){
         cb(null,path.join(__dirname,'..',avatarFilePath));
     },
-    filename: function(req,res,cb){
+    filename: function(req,file,cb){
         cb(null, file.fieldname + '-' +Date.now());
     }
 })
-posts.statics.uploadPicture = multer({storage:storage}).single('avatarPath');
+posts.statics.uploadPicture = multer({storage:storage}).single('postPicture');
+posts.statics.aPath = avatarFilePath;
+
 const Post = mongoose.model('Post',posts);
 module.exports = Post;

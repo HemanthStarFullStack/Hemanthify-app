@@ -36,6 +36,8 @@
                     <a class="delete-post-button" href="/post/delete_post/?id=${post.postId}">X</a>
                     ${post.postContent}
                     <br>
+                    <img src=${post.postAvatar} alt="Image Error" width="100" height="100">
+                    <br>
                     ${post.postUserName}
                     <div>
                         <small>
@@ -93,7 +95,7 @@
         };
     }
     deletePostOld();
-    createPost();
+    // createPost();
     
     
 }
