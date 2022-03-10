@@ -39,7 +39,6 @@ class PostComments{
                     $(`#post-listComments-${postId}`).prepend(newComment);
                     console.log($('.deleteButton', newComment));
                     pSelf.deleteComment($('.deleteButton', newComment));
-
                     new Noty({
                         theme: 'relax',
                         text: "Comment published!",
@@ -63,20 +62,19 @@ class PostComments{
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
         return $(`<li id="comment-${comment.comment_id}"> 
                         <small>
-                            
-                                <a href="/comments/deleteComment/?id=${comment.comment_id}" class="deleteButton">X</a>
-                             
-                            
+                            <a href="/comments/deleteComment/?id=${comment.comment_id}" class="deleteButton">X</a>
                             ${comment.commentor_name}
                             <br>
                             ${comment.commentor_con}
                             <br>
-
+                            <div>
+                                <small>
+                                    <a href="/likes/toggle/?id=${comment.comment_id}&type=Comment" class="toggle-like"> 0 likes </a>
+                                </small>
+                            </div>
                         </small>
                 </li>`);
         }
-
-
     deleteComment(deleteLink){
         $(deleteLink).click(function(e){
             e.preventDefault();

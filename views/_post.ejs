@@ -6,7 +6,11 @@
         <%= post.content %>
         <br>
         <%= post.user.name%>
-        
+            <div>
+                <small>
+                    <a href="/likes/toggle/?id=<%=post._id%>&type=Post" class="toggle-like" data-likes="<%=post.likes.length%>"><%=post.likes.length%> likes</a>
+                </small>
+            </div>
         <div> 
             <%if(locals.user) {%>
                 <form action="/comments/update" method="POST" id="post-comments-<%=post._id%>">
@@ -18,15 +22,18 @@
             <%}%>
             <div class="post-comment-list">
                 <p>
-                    <ul id="post-listCommets-<%=post._id%>"> 
+                    <ul id="post-listComments-<%=post._id%>"> 
                         <%for (comment of post.comments){%>
                                 <%-include('_comment')-%>
                         <%}%>
+                        
                     </ul>
                 </p>
             </div>            
         </div>
-
     </p>
 
 </li>
+<script>
+    new PostComments(`<%=post._id%>`);
+</script>

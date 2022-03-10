@@ -3,11 +3,12 @@ const comment = require("../models/comments");
 
 module.exports.posts = async function(req,res){
     try{
+         
+        console.log(req.file);
         let post = await Post.create({
             content:req.body.content,
             user:req.user._id
         });
-        
         if(req.xhr){
             await post.populate('user');
             return res.status(200).json({
@@ -20,6 +21,7 @@ module.exports.posts = async function(req,res){
                 message:"post Created"
             })
         }
+         
 
         req.flash('success','Posted');
         return res.redirect('back');

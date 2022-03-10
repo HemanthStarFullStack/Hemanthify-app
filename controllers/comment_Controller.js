@@ -16,7 +16,7 @@ module.exports.comment_section  = async function(req,res)
                 {
                     content:req.body.content,
                     post:req.body.post,
-                    user:req.user
+                    user:req.user._id
                 });
                 
                 

@@ -12,8 +12,9 @@ const forgotPassword = new mongoose.Schema({
         type:Boolean,
         default:true
     }
+
 },{
-    timestamps:true
+    timestamps:true,
 });
 const forgotPass  = mongoose.model('ForgotPass',forgotPassword);
 module.exports = forgotPass;

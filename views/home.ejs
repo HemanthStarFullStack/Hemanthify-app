@@ -4,9 +4,10 @@
     <section id = "hemanthifyPosts">
         <h4>Posts</h4>
         <%if (locals.user) {%>
-        <form action="/post/post_data" id="postForm" method="POST">
+        <form action="/post/post_data" id="postForm" method="POST" enctype="multipart/form-data">
             <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
-            <button>Submit</button>
+            <input type="file" name="postPicture" placeholder="Add Image">
+            <input type="submit" value="submit">
         </form>
         <%}%>
         <ul id="post-list">
@@ -29,5 +30,5 @@
      
 </div>
 <script src="/js/home_posts.js"></script>  
-<script src="/js/comments.js"></script> 
+<script src="/js/likes.js"></script>
  

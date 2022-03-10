@@ -1,8 +1,7 @@
+ 
 {   
-
-    let createPost = function(){
+    createPost = function(){
         let newPostForm = $('#postForm');
-         
         newPostForm.submit(function(e){
             console.log(e);
             e.preventDefault();
@@ -11,7 +10,6 @@
                 url:'/post/post_data',
                 data:newPostForm.serialize(),
                 success: function(data){
-                    
                     let newPost = newPostDOM(data.data);
                     let commentData = data.data.postId;
                     $('#hemanthifyPosts >ul').prepend(newPost);
@@ -21,13 +19,9 @@
                         type: 'success',
                         layout: 'topRight',
                         timeout: 1500
-                        
                     }).show();
                     new PostComments(commentData);
                     deletePost($('.delete-post-button', newPost));
-                    
-                     
-
                 },error : function(error){
                     console.log(error.responseText);
                 }
@@ -36,18 +30,19 @@
     }
      
 
-    let newPostDOM = function(post){
+    newPostDOM = function(post){
         return $(`<li id="post-${post.postId}">
                 <p> 
-                    
                     <a class="delete-post-button" href="/post/delete_post/?id=${post.postId}">X</a>
-                   
                     ${post.postContent}
                     <br>
                     ${post.postUserName}
-                    
+                    <div>
+                        <small>
+                            <a href="/likes/toggle/?id=${post.postId}&type=Post" class="toggle-like">0 likes</a>
+                        </small>
+                    </div>
                     <div class="post-comments"> 
-                        
                             <form action="/comments/update" method="POST" id="post-comments-${post.postId}">
                                 <input type="text" name= "content" placeholder="add comment">
                                 <input type="hidden" name ="post" value="${post.postId}">
@@ -67,7 +62,7 @@
     </li>`)
     }
 
-    let deletePost = function(deleteLink){
+    deletePost = function(deleteLink){
         $(deleteLink).click(function(e){
             e.preventDefault();
             $.ajax({
@@ -89,14 +84,16 @@
             });
         })
     }
+     
 
     let deletePostOld= function(){
         for(post of $('#post-list>li')){
-            deletePost($('.delete-post-button' , post));
-        }
+            let delButton = $(' .delete-post-button',post);
+            deletePost(delButton);
+        };
     }
-     
-    createPost();
     deletePostOld();
+    createPost();
+    
     
 }
