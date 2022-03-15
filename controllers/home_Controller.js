@@ -1,5 +1,6 @@
 const post = require("../models/post");
-const user = require("../models/user");
+const user = require("../models/user"); 
+const Friends = require("../models/friends");
 module.exports.home = async function(req,res){
     try{
         let postData = await post.find({})
@@ -14,14 +15,13 @@ module.exports.home = async function(req,res){
                 path:'user',
             },
         }).populate('likes')
-        
-       
-        
         let userData = await user.find({});
+        
         return res.render('home',{
             title:'Hemanthify Feed',
             posts:postData,
-            users:userData
+            users:userData,
+             
         });
 
     }catch(err){

@@ -26,16 +26,12 @@ class PostComments{
            
             e.preventDefault();
             let self = this;
-
             $.ajax({
                 type: 'post',
                 url: '/comments/update',
                 data: $(self).serialize(),
                 success: function(data){
-                     
                     let newComment = pSelf.newCommentDom(data.data);
-                    
-                    
                     $(`#post-listComments-${postId}`).prepend(newComment);
                     console.log($('.deleteButton', newComment));
                     pSelf.deleteComment($('.deleteButton', newComment));

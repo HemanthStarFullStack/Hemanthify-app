@@ -1,6 +1,7 @@
 {
+     
     document.addEventListener('click',function(e){
-        Tar = e.target;
+        let Tar = e.target;
         if(Tar.className =="toggle-like"){
             e.preventDefault();
             toggle(Tar)
@@ -12,9 +13,12 @@
             url :target.href,
             success: function(data){
                 console.log(data);
-                let likeData = parseInt(Tar.dataset.likes);
-                $(Tar).attr('data-likes',likeData);
-                $(Tar).html(`${data.data.likesLen} likes`)
+                let likeData = parseInt(target.dataset.likes);
+                $(target).attr('data-likes',likeData);
+                $(target).html(`${data.data.likesLen} likes`)
+            },
+            error: function(err){
+                console.log(err);
             }
         })
     }

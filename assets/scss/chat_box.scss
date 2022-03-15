@@ -1,0 +1,39 @@
+#chat-container{
+    position:absolute;
+    bottom:60px;
+    z-index:1;
+    width: 65%;
+    height: calc(100vh - 114px);
+    display: flex;
+    right: 0;
+    flex-direction:column;
+    justify-content: end;
+    background-color:rgba(255, 255, 255, 0.521);
+    border: 2px solid black;
+    .chat-box{
+        list-style: none;
+	    padding: 10px;
+	    height: 100%;
+	    background-color: white;
+	    overflow: auto;
+        .self-message{
+           margin-left: auto;
+           background-color: darkkhaki;
+           width:20%;
+           right: 0;
+        }
+        .other-message{
+            background-color: darksalmon;
+            width: 20%;
+        }
+    }
+    #input-id{
+        background-color: rgb(225, 231, 233);
+        display: flex;
+         
+        button{ 
+            background-color: blanchedalmond;
+        }
+    }
+
+}

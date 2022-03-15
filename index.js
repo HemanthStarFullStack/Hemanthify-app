@@ -13,6 +13,14 @@ const passportLocal = require("./config/passport-local");
 const passportJWT = require("./config/passport-jwt");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
+
+const http  = require('http');
+const server = http.createServer(app);
+const chatSockets = require('./config/chatSockets').chatSockets(server);
+server.listen(5000);
+
+console.log('server is listening on 5000');
+
 const customMW = require("./config/customMW");
 const googleAuth = require("./config/google-oauth20");
 app.use(express.urlencoded());

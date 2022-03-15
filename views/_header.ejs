@@ -1,36 +1,38 @@
 <link rel="stylesheet" type="text/css" href="/css/header.css">
-<header id="layout-header">
-    <nav>
-        <div class="mini-logo">
-            <p>
-                <a href='/'>
-                    Hemanthify
-                </a>
-            </p>
-        </div>
-    
-        <div class="auth-links">
-            <ul>
-                <% if (locals.user){ %>
-                <li>
-                    <a href="/users/profile/<%=user.id%>"><%= user.name %></a>
-                </li>
-                <li>
-                    <a href="/users/sign-out">Sign Out</a>
-                </li>
-                <% }else{ %>
-                <li>
-                    <a href="/users/sign-in">Sign In</a>
-                </li>
-                <li>
-                    <a href="/users/sign-up">Sign Up</a>
-                </li>
-        
-                <% } %>
-            </ul>
-        </div>
-    </nav>
- 
-
-
-</header>
+<div id="layout-header"> 
+    <header>
+        <nav>
+            <div class="mini-logo">
+                <p>
+                    <a href='/'>
+                        Hemanthify
+                    </a>
+                </p>
+            </div>
+            <div class="auth-links">
+                <ul>
+                    <% if (locals.user){ %>
+                        
+                    <li>
+                        <a href="/users/chatroom">**Chat**</a>
+                    </li>
+                    <li>
+                        <a href="/users/profile/<%=user.id%>/<%=locals.user.id%>"><%= user.name %></a>
+                    </li>
+                    <li>
+                        <a href="/users/sign-out">Sign Out</a>
+                    </li>
+                    <% }else{ %>
+                    <li>
+                        <a href="/users/sign-in">Sign In</a>
+                    </li>
+                    <li>
+                        <a href="/users/sign-up">Sign Up</a>
+                    </li>
+            
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</div>

@@ -1,12 +1,9 @@
 const comment = require('../models/comments');
 const post = require('../models/post');
-const commentMailer  = require("../mailer/comment-mailer");
-const commentEmailWorker = require("../workers/commentEmailWorker");
 const queue = require('../config/kue');
-
+const Like = require('../models/like');
 module.exports.comment_section  = async function(req,res)
 {   
-    console.log(req.body);
     try{
         let postData = await post.findById(req.body.post);
         
@@ -18,8 +15,6 @@ module.exports.comment_section  = async function(req,res)
                     post:req.body.post,
                     user:req.user._id
                 });
-                
-                
                 postData.comments.push(commentNew);
                 postData.save();
                 await commentNew.populate('user');
@@ -31,11 +26,7 @@ module.exports.comment_section  = async function(req,res)
                     console.log(job.id,"job enqueued");
 
                 });
-                
-
                 if(req.xhr){
-                     
-                    
                     return res.status(200).json({
                         data:{
                             commentor_con:req.body.content,
@@ -57,14 +48,11 @@ module.exports.comment_section  = async function(req,res)
         return;
 
     }
-     
 }
-
 module.exports.commentDeletion = async function(req,res){
-    console.log(req.user);
     try{
         let commentData = await comment.findById(req.query.id);
-        console.log(commentData);
+        await Like.deleteMany({likeable:req.query.id});
         if(commentData.user == req.user.id){
                 let postID = commentData.post;
                 commentData.remove();
@@ -83,7 +71,6 @@ module.exports.commentDeletion = async function(req,res){
         else{
             return res.redirect('back');
         }
-
     }catch(err){
         console.log(err);
         return;

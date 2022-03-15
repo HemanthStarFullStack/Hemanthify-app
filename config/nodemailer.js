@@ -22,7 +22,7 @@ let renderTemplate  = (data, relativePath)=>{
         path.join(__dirname,'../views/mailer',relativePath),
         data,
         function(err,template){
-            console.log(relativePath);
+             
           
             if(err){
                 console.log(data);

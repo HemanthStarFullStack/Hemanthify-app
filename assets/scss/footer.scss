@@ -1,5 +1,8 @@
 #layout-footer{
-    color: white;
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    color:white;
     a{
         color: white;
         text-decoration: none;
@@ -11,8 +14,6 @@
     align-self: flex-end;
     justify-content: flex-start;
     margin-top: 90%;
-
-
     .footer-nav{
         ul{
             list-style: none;

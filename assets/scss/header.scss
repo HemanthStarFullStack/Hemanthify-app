@@ -1,4 +1,7 @@
 #layout-header{
+    position: fixed;
+    top: 0px;
+    width:100%;
     nav{
         display: flex;
         justify-content: space-between;
@@ -6,7 +9,6 @@
         background: #2196f3;
         color: white;
         box-shadow: 1px 1px 1px 1px whitesmoke;
-
         .mini-logo{
             p{
                 margin: 5px;
@@ -14,7 +16,10 @@
                 font-weight: bold;
             }
         }
-
+        .chat-room{
+            display: flex;
+            margin-left:auto;
+        }
         .auth-links{
             ul{
                 margin: 5% 5px;

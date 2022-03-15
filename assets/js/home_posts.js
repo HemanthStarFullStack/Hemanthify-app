@@ -1,4 +1,3 @@
- 
 {   
     createPost = function(){
         let newPostForm = $('#postForm');
@@ -10,6 +9,7 @@
                 url:'/post/post_data',
                 data:newPostForm.serialize(),
                 success: function(data){
+                    console.log(newPostForm.serialize());
                     let newPost = newPostDOM(data.data);
                     let commentData = data.data.postId;
                     $('#hemanthifyPosts >ul').prepend(newPost);
@@ -35,9 +35,9 @@
                 <p> 
                     <a class="delete-post-button" href="/post/delete_post/?id=${post.postId}">X</a>
                     ${post.postContent}
-                    <br>
-                    <img src=${post.postAvatar} alt="Image Error" width="100" height="100">
-                    <br>
+                        <br>
+                            <img src=${post.postAvatar} alt="Image Error" width="100" height="100">
+                        <br>
                     ${post.postUserName}
                     <div>
                         <small>
