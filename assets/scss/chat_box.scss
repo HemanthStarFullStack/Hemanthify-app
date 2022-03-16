@@ -1,4 +1,17 @@
+.friend-heading{
+    // margin-top:calc(100vh-60px);
+    margin-top:100px;
+}
+
+.friends-container{
+    margin-top:10%;
+    display:flex;
+    .friend-list{
+        display: block;
+    }
+}
 #chat-container{
+    overflow:scroll;
     position:absolute;
     bottom:60px;
     z-index:1;

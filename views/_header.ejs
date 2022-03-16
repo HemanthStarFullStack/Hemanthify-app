@@ -14,7 +14,7 @@
                     <% if (locals.user){ %>
                         
                     <li>
-                        <a href="/users/chatroom">**Chat**</a>
+                        <a href="/users/chatroom/<%=locals.user.id%>">**Chat**</a>
                     </li>
                     <li>
                         <a href="/users/profile/<%=user.id%>/<%=locals.user.id%>"><%= user.name %></a>

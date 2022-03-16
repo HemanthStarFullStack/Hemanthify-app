@@ -29,6 +29,6 @@ router.get('/forgotPassword/:token',forgot_pass.SetNewPassPage);
 router.post('/forgotPassword',forgot_pass.ForgotMailAuthForPass);
 router.post('/forgotForm',forgot_pass.ForgotPassForm);
 router.post('/friends',friend.friends);
-router.get('/chatroom',chatCon.chat);
+router.get('/chatroom/:sendId',chatCon.chat);
 
 module.exports = router;

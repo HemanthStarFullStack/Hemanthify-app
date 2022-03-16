@@ -1,9 +1,7 @@
 {
     createFriend = function(){
-        console.log('bitch');
         target = $('.friendButton')
         let newPostForm1 = $('#addFriend');
-        console.log(newPostForm1);
         newPostForm1.submit(function(e){
             e.preventDefault();
             $.ajax({

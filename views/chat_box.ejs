@@ -1,21 +1,29 @@
 <link rel="stylesheet" type="text/css"  href="/css/chat_box.css">
-<div>
-    Friends
-</div>
-
-<div id ="chat-container">
-    <ul class="chat-box">
+<h3 class="friend-heading">
+    People You Can Mesaage
+</h3>
+<div class="friends-container">
+    <ul class='friend-list'>
+        <%for(friend of friendData){%>
+            <li>
+                <form action="/chat/chatroom" method ="POST" id="chat-<%=friend._id%>"> 
+                    <input type='hidden' value="<%=friend._id%>" name ="recId">
+                    <input type="hidden" name="sendId" value="<%=locals.user._id%>">
+                    <input type="hidden" value="<%=friend.name%>" name="recName">
+                    <button class='follow-chat-button'>
+                        <span>
+                            <%=friend.name%>
+                        </span>
+                    </button>
+                </form>
+            </li>
+            <%-include('chatScript')-%>
+        <%}%>
     </ul>
-    <div id="input-id">
-        <input type="text" name="Message" id="type-message" placeholder="type your message............">
-        <button id="send-message">Send</button>
-    </div>
+</div>
+<div id="chat-DOM">
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/js/chatEngine.js"></script>
-<%if(locals.user){%>
-    <script>
-        new ChatEngine('chat-container','<%=locals.user.email%>')
-    </script>
-<%}%>
+ 
  

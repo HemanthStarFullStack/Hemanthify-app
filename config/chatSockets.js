@@ -10,7 +10,7 @@ module.exports.chatSockets = function(socketServer){
     });
     io.sockets.on('connection', function(socket){
         console.log('new connection',socket.id);
-        socket.on('diconnect',function(){
+        socket.on('disconnect',function(){
             console.log('disconnected');
         });
         socket.on('join_room',function(data){

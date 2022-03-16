@@ -1,3 +1,12 @@
+.friend-heading {
+  margin-top: 100px; }
+
+.friends-container {
+  margin-top: 10%;
+  display: flex; }
+  .friends-container .friend-list {
+    display: block; }
+
 #chat-container {
   position: absolute;
   bottom: 60px;
