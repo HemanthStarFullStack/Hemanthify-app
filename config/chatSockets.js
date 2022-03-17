@@ -1,4 +1,5 @@
-
+const chatDB = require("../models/chatDB");
+const chatMessage = require('../models/chatMessage');
 module.exports.chatSockets = function(socketServer){
     const Server = require('socket.io');
     //It will be handling the connections
@@ -18,12 +19,38 @@ module.exports.chatSockets = function(socketServer){
             socket.join(data.chatRoom);
             io.in(data.chatRoom).emit('user_joined',data);
         });
-        socket.on('send_message',function(data){
+        socket.on('send_message',async function(data){
+            console.log(typeof(data.message));
             console.log(data);
+            storeMessage(data);
             io.in(data.chatRoom).emit('recieve_message',data);
         });
 
     });
 
-
 }
+
+const storeMessage = async function(data){
+    try{
+        let chatRoom = await chatDB.findOne({chatRoom:data.chatRoom});
+        if(!chatRoom){
+            chatRoom = await chatDB.create({
+                chatRoom : data.chatRoom,
+            });
+        }
+        let messageData  = await chatMessage.create({
+            chatRoom : chatRoom._id,
+            User : data.Id,
+            message:data.message
+        });
+        await chatRoom.messages.push(messageData._id);
+        chatRoom.save();
+        
+    }catch(err){
+        console.log(err);
+        return
+    }
+     
+     
+
+} 

@@ -8,6 +8,7 @@
     display: block; }
 
 #chat-container {
+  overflow: scroll;
   position: absolute;
   bottom: 60px;
   z-index: 1;

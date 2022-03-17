@@ -17,20 +17,22 @@
                 data:self.form.serialize(),
                 success: function(data){
                     console.log(data);
-                    new ChatEngine(data.data.recId,data.data.sendId,data.data.recName);
+                    new ChatEngine(data.data.recId,data.data.sendId,data.data.recName,data.data.messageData);
                 }
             });
          }
     }
     class ChatEngine{
-        constructor(RecId,sendId,userName){
+        constructor(RecId,sendId,userName,messageData){
             this.recId = RecId;
             this.sendId = sendId;
             this.userName = userName;
+            this.messageData= messageData;
             console.log("recieverId",this.recId)
             console.log("senderId",this.sendId)
             console.log("userName",this.userName);
-            this.DOMhtml = this.newChaDOM();
+            this.DOMhtml = this.newChaDOM(this.messageData);
+            $('.delete-box').remove();
             this.chatDOM  = $('#chat-DOM');
             $("#remove").remove();
             this.chatDOM.prepend(this.DOMhtml);
@@ -39,9 +41,19 @@
                 this.connectionHandler();
             }
         }
-        newChaDOM = function(){
-            return $(`<div id ="chat-container" class="${this.userName}">
+        newChaDOM = function(messageData){
+            let self  = this;
+            return $(`<div id ="chat-container" class="delete-box">
                             <ul class="chat-box">
+
+                            ${messageData == null ? '': messageData.messages.map(function(message){
+                                        if(message.User == self.sendId){
+                                           return `<li class="self-message">${message.message}</li>`
+                                        }
+                                        else{
+                                            return `<li class="other-message">${message.message}</li>`
+                                        }
+                                }).join('')}
                             </ul>
                             <div id="input-id">
                                 <input type="text" name="Message" id="type-message" placeholder="type your message............">
@@ -55,7 +67,7 @@
             let arr = [self.recId,self.sendId];
             arr.sort();
             let chatName = arr[0]+"-"+arr[1]
-            console.log(chatName);
+            console.log(chatName); 
             console.log(arr);
             this.socket.on('connect',function(){
                 console.log('Connection Established');
@@ -72,22 +84,23 @@
                 console.log(message);
                 self.socket.emit('send_message',{
                         message:message,
-                        user_email:self.userName,
-                        chatRoom: chatName
+                        user_Name:self.userName,
+                        chatRoom: chatName,
+                        Id : self.sendId
                     });
             });
             self.socket.on('recieve_message',function(data){
                 console.log('message recieved',data.message);
                 let newMessage = $('<li>');
                 let messageType = 'other-message';
-                if(data.user_email == self.userName){
+                if(data.user_Name == self.userName){
                     messageType = 'self-message';
                 }
                 newMessage.append($('<span>',{
                     html: data.message
                 }));
                 newMessage.append($('<sub>',{
-                    html:data.user_email
+                    html:data.user_Name
                 }));
                 newMessage.addClass(messageType);
                 $('.chat-box').append(newMessage);
