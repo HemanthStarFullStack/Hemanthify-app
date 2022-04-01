@@ -1,33 +1,40 @@
-<link rel="stylesheet" type="text/css" href="/css/header.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&&display=swap" rel="stylesheet">
 <div id="layout-header"> 
     <header>
         <nav>
             <div class="mini-logo">
-                <p>
                     <a href='/'>
                         Hemanthify
                     </a>
-                </p>
             </div>
             <div class="auth-links">
                 <ul>
                     <% if (locals.user){ %>
                         
                     <li>
-                        <a href="/users/chatroom/<%=locals.user.id%>">**Chat**</a>
+                        <a href="/users/chatroom/<%=locals.user._id%>">
+                            <i class="fa-solid fa-message"></i>
+                        </a>
                     </li>
                     <li>
-                        <a href="/users/profile/<%=user.id%>/<%=locals.user.id%>"><%= user.name %></a>
+                        <a href="/users/profile/<%=user.id%>/<%=locals.user._id%>">
+                            <div class="img-con">
+                                <img src="<%=user.avatar%>" alt="">
+                            </div>
+                        </a>
+                         
                     </li>
                     <li>
-                        <a href="/users/sign-out">Sign Out</a>
+                        <a href="/users/sign-out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
                     </li>
                     <% }else{ %>
-                    <li>
+                    <li id="signIN">
                         <a href="/users/sign-in">Sign In</a>
-                    </li>
-                    <li>
-                        <a href="/users/sign-up">Sign Up</a>
                     </li>
             
                     <% } %>

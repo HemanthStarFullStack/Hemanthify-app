@@ -1,2 +1,12 @@
 body {
-  background-color: blueviolet; }
+  background-color: #fff4f4;
+  height: auto; }
+
+.pro-img-con {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; }
+  .pro-img-con img {
+    height: 4rem;
+    width: 4rem; }

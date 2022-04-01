@@ -1,0 +1,10 @@
+.comment-li-con {
+  display: flex;
+  width: 100%; }
+  .comment-li-con .comment-container {
+    display: flex;
+    border: 1px solid black; }
+    .comment-li-con .comment-container a {
+      text-decoration: none; }
+  .comment-li-con .likes-container a {
+    text-decoration: none; }

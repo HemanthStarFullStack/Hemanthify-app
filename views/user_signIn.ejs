@@ -1,13 +1,35 @@
-<h1>sign in</h1>
-
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Sign in">
-</form>
-<p>
-    <a href="/users/auth/google">Google-SignIn And Sign-Up</a>
-</p>
-<p>
-    <a href="/users/forgotPassword">forgot Password</a>
-</p>
+<link rel="stylesheet" href="/css/userSignIn.css">
+ 
+    <div class="userSignIn"> 
+        <div id="signIn-name">
+            <h1>sign in</h1>
+        </div>
+        <div id="formArea">
+            <form action="/users/create-session" method="POST">
+                <div id="mail">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div id="password">
+                    <input type="password" name="password" placeholder="Password" required> 
+                </div> 
+                 
+                <input type="submit" value="Sign in">
+            </form>
+            <p>
+                <a href="/users/auth/google" id="google-logo"><i class="fa-brands fa-google"></i></a>
+                <small>
+                    <a href="/users/forgotPassword">forgot Password</a>
+                </small>
+            </p>
+            <div>
+                dont have an account?..then <a href="/users/sign-up">SignUp</a>
+            </div>
+        </div>
+        
+         
+    </div>
+    
+ 
+     
+ 
+ 

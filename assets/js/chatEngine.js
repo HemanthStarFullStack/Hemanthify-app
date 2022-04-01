@@ -44,8 +44,9 @@
         newChaDOM = function(messageData){
             let self  = this;
             return $(`<div id ="chat-container" class="delete-box">
+                            <div>
+                            </div>
                             <ul class="chat-box">
-
                             ${messageData == null ? '': messageData.messages.map(function(message){
                                         if(message.User == self.sendId){
                                            return `<li class="self-message">${message.message}</li>`
@@ -98,9 +99,6 @@
                 }
                 newMessage.append($('<span>',{
                     html: data.message
-                }));
-                newMessage.append($('<sub>',{
-                    html:data.user_Name
                 }));
                 newMessage.addClass(messageType);
                 $('.chat-box').append(newMessage);

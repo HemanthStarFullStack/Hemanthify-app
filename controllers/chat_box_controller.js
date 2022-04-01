@@ -4,18 +4,19 @@ module.exports.chat = async function(req,res){
     console.log(req.params.sendId);
     let activeUser = await user.findById(req.params.sendId)
     .populate({
-        path:'friends',
+        path:'following',
         populate:{
             path:'_id'
         }
     });
     return res.render('chat_box',{
         title:"Chat",
-        friendData:activeUser.friends
+        friendData:activeUser.following
     });
 }
 module.exports.customChatRoom  = async function(req,res){
     let messageData = await populateMessage(req.body.sendId,req.body.recId);
+    let rec_userData = await user.findById(req.body.recID);
     console.log(req.body.recId,req.body.recName,req.body.sendId);
     console.log(req.xhr);
     if(req.xhr){
@@ -39,7 +40,6 @@ const populateMessage = async function(sendId,recId){
     let room  = await chatDB.findOne({chatRoom:roomName}).
     populate('messages');
     return room
-
 }
 
  

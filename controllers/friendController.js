@@ -10,8 +10,8 @@ module.exports.friends = async function(req,res){
     let reciever = await User.findById(req.body.recieverId);
     if(req.xhr){
         if(obj){
-            await sender.friends.pull(obj.to_user);
-            await reciever.friends.pull(obj.from_user);
+            await sender.following.pull(obj.to_user);
+            await reciever.follower.pull(obj.from_user);
             obj.remove();
             sender.save();
             reciever.save();
@@ -27,8 +27,8 @@ module.exports.friends = async function(req,res){
         from_user:req.body.senderId,
         to_user : req.body.recieverId
     });
-    await sender.friends.push(friObj.to_user);
-    await reciever.friends.push(friObj.from_user);
+    await sender.following.push(friObj.to_user);
+    await reciever.follower.push(friObj.from_user);
     sender.save();
     reciever.save();
     if(friObj){

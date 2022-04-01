@@ -1,0 +1,39 @@
+body {
+  background-image: url(../images/wallpaperflare.com_wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.userSignIn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: transparent;
+  border: 2px solid gray;
+  padding: 2rem;
+  flex-direction: column;
+  border-radius: 1rem;
+  box-shadow: 4px  4px 18px -1px  black;
+  width: 44%;
+  height: 45%; }
+  .userSignIn form {
+    align-items: center; }
+  .userSignIn a {
+    text-decoration: none; }
+  .userSignIn #google-logo {
+    font-size: 2rem; }
+  .userSignIn #mail {
+    align-self: flex-start; }
+  .userSignIn #password {
+    align-self: flex-end; }
+
+#signIn-Name {
+  align-self: flex-start;
+  border: 1px solid black;
+  width: 50%; }
+
+#formArea {
+  align-self: flex-end;
+  border: 1px solid black;
+  width: 50%; }

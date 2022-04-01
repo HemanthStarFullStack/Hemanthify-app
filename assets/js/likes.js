@@ -1,5 +1,4 @@
 {
-     
     document.addEventListener('click',function(e){
         let Tar = e.target;
         if(Tar.className =="toggle-like"){

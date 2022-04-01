@@ -1,19 +1,12 @@
 #layout-footer{
-    position: fixed;
+    height: 5%;
     bottom: 0px;
     width:100%;
-    color:white;
+    background-color: var(--header);
     a{
         color: white;
         text-decoration: none;
     }
-
-    background: grey;
-    padding: 5px 10px;
-    display: flex;
-    align-self: flex-end;
-    justify-content: flex-start;
-    margin-top: 90%;
     .footer-nav{
         ul{
             list-style: none;

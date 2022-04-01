@@ -1,14 +1,40 @@
 <link rel="stylesheet" href="/css/home.css">
  
 <div id="homeDisplay">
+    <section id="totalUsers">
+        <%if(locals.user){%>
+            <h4>
+                People You May Know
+            </h4>
+            <% for (u of users){%>
+                    <div class="total-user-data">
+                        <a href="users/profile/<%=u.id%>/<%=locals.user.id%>">
+                            <span>
+                                <img src="<%=u.avatar%>" alt="">
+                            </span>
+                            <span>
+                                <%=u.name%>
+                            </span>
+                        </a>
+                    </div>
+            <%}%>
+        <%}%>
+    </section>
     <section id = "hemanthifyPosts">
-        <h4>Posts</h4>
-        <%if (locals.user) {%>
-            <form action="/post/post_data" id="postForm" method="POST" enctype="multipart/form-data">
-                <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
-                <input type="file" name="postPicture" placeholder="Add Image">
-                <input type="submit" value="submit">
-            </form>
+        <span>
+            Wanna Share Something...
+        </span>
+        <%if (locals.user){%>
+            <div id="post-form-con" >
+                <button id="post-button" data-bs-toggle="collapse" href="#postFormContainer" role="button" aria-expanded="false" aria-controls="postFormContainer"> Post </button>
+                <div class="collapse" id="postFormContainer">
+                    <form action="/post/post_data" id="postForm" method="POST" enctype="multipart/form-data">
+                        <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
+                        <input type="file" name="postPicture" placeholder="Add Image">
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
         <%}%>
         <ul id="post-list">
             <% for (post of posts) {%>
@@ -16,19 +42,27 @@
             <%}%>
         </ul>
     </section>
-    
-    <section id="userFriends">
-        <%if(locals.user){%>
-            <h4>
-                Friends
-            </h4>
-            <% for (u of users){%>
-                    <p>
-                        <a href="users/profile/<%=u.id%>/<%=locals.user.id%>"><%=u.name%></a>
-                    </p>
+    <%if(locals.user){%>
+        <section id="userFriends">
+            <h1>
+                Followers
+            </h1>
+            <%for(following of followers.following){%>
+                <div class="total-user-data">
+                    <a href="users/profile/<%=u.id%>/<%=locals.user.id%>">
+                        <span>
+                            <img src="<%=following.avatar%>" alt="">
+                        </span>
+                        <span>
+                            <%=following.name%>
+                        </span>
+                    </a>
+                </div>
             <%}%>
-        <%}%>
-    </section>
+        </section>
+    <%}%>
+    
+     
      
 </div>
 <script src="/js/home_posts.js"></script>  

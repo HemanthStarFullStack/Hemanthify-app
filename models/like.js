@@ -15,7 +15,6 @@ const likeSchema = new mongoose.Schema({
         type:String,
         required: true,
         enum:['Post','Comment']
-
     }
 },{
     timestamps:true

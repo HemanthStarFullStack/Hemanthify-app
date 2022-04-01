@@ -1,20 +1,20 @@
 #layout-header{
-    position: fixed;
     top: 0px;
-    width:100%;
+    position: sticky;
+    z-index: 10;
+    width: 100%;
     nav{
+        height: 2.5rem;
         display: flex;
         justify-content: space-between;
         padding: 0 10px;
-        background: #2196f3;
-        color: white;
-        box-shadow: 1px 1px 1px 1px whitesmoke;
-        .mini-logo{
-            p{
-                margin: 5px;
+        background-color: var(--header);
+        box-shadow: 1px 1px 1px 1px rgb(20, 20, 20);
+        .mini-logo{  
+                font-family: 'Gloria Hallelujah&', cursive;
+                margin-top: 0.5%;
                 font-size: 1.4rem;
-                font-weight: bold;
-            }
+                font-weight: 1000;
         }
         .chat-room{
             display: flex;
@@ -22,19 +22,36 @@
         }
         .auth-links{
             ul{
-                margin: 5% 5px;
+                margin-top: 4%;
                 display: flex;
                 list-style: none;
-
                 li{
-                    margin-right: 10px;
+                    padding: 2%;
+                    font-size: 1.6rem;
                 }
+                .img-con{
+                    height: 2rem;
+                    width: 2rem;
+                    border-radius: 100%;
+                    background-color: azure;
+                    display: flex;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        align-self: center;
+                        border-radius: 100%;
+                    }
+                }
+                 
             }
         }
 
         a{
             color: white;
             text-decoration: none;
+        }
+        #signIN{
+            font-size: 0.4rem;
         }
 
     }

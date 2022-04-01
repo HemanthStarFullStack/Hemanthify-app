@@ -1,28 +1,47 @@
 <link rel="stylesheet" type="text/css"  href="/css/chat_box.css">
-<h3 class="friend-heading">
-    People You Can Mesaage
-</h3>
-<div class="friends-container">
-    <ul class='friend-list'>
-        <%for(friend of friendData){%>
-            <li>
-                <form action="/chat/chatroom" method ="POST" id="chat-<%=friend._id%>"> 
-                    <input type='hidden' value="<%=friend._id%>" name ="recId">
-                    <input type="hidden" name="sendId" value="<%=locals.user._id%>">
-                    <input type="hidden" value="<%=friend.name%>" name="recName">
-                    <button class='follow-chat-button'>
-                        <span>
-                            <%=friend.name%>
-                        </span>
-                    </button>
-                </form>
-            </li>
-            <%-include('chatScript')-%>
-        <%}%>
-    </ul>
-</div>
-<div id="chat-DOM">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Rancho&effect=3d">
+<div id="chatPageCon"> 
+    <section class="friends-container">
+        <div class="font-effect-3d friend-heading">
+            People You Can Mesaage
+        </div>
+        <div id="friends-div"> 
+                <%for(friend of friendData){%>
+                    <div class="reciever-container">
+                            <form action="/chat/chatroom" method ="POST" id="chat-<%=friend._id%>"> 
+                                <input type='hidden' value="<%=friend._id%>" name ="recId">
+                                <input type="hidden" name="sendId" value="<%=locals.user._id%>">
+                                <input type="hidden" value="<%=friend.name%>" name="recName">
+                                <button class='chat-button'>
+                                    <div class="chat-detail-con">
+                                        <picture class="chat-picture-con">
+                                            <img src="<%=friend.avatar%>" alt="">
+                                        </picture>
+                                        <div class="chat-rec-name">
+                                            <%=friend.name%>
+                                        </div>
+                                    </div>
+                                </button>
+                            </form>
+                    </div>
+                    <%-include('chatScript')-%>
+                <%}%>
+        </div>
+    </section>
+         
 
+    <section id="chat-DOM">
+        <div id ="chat-container" class="delete-box">
+            <div>
+            </div>
+            <ul class="chat-box">
+            </ul>
+            <div id="input-id">
+                <input type="text" name="Message" id="type-message" placeholder="type your message............">
+                <button id="send-message">Send</button>
+            </div>
+        </div>
+    </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
  

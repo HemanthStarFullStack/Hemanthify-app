@@ -1,0 +1,17 @@
+.comment-li-con{
+    display: flex;
+    width: 100%;
+    .comment-container{
+        display: flex;
+        border: 1px solid black;
+        a{
+            text-decoration: none;
+        }
+    }
+    .likes-container{
+        a{
+            text-decoration: none;
+        }
+    }
+}
+ 

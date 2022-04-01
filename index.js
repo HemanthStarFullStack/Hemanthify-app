@@ -6,6 +6,7 @@ const port = 8000;
 // const expressLayouts = require('express-ejs-layouts');
 const db  = require("./config/mongoose")
 console.log(db._connectionString);
+const env = require('./config/enivironment');
 //session cookie creation
 const session = require("express-session");
 const passport = require("passport");
@@ -38,7 +39,7 @@ app.use(session({
     saveUninitialized:false,
     resave:false,
     cookie:{
-        maxAge:(1000*60*100) 
+        maxAge:(100000*60*100) 
     },
     store:MongoStore.create({
         mongoUrl:db._connectionString,

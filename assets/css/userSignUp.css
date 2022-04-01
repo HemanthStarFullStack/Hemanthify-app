@@ -1,0 +1,7 @@
+.sign-Up-Container {
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column; }
+  .sign-Up-Container form {
+    display: flex;
+    flex-direction: column; }

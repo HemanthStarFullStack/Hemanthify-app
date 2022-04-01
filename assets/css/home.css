@@ -1,11 +1,52 @@
 #homeDisplay {
-  display: flex; }
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px; }
   #homeDisplay #hemanthifyPosts {
-    margin-left: 20%;
-    width: 70%;
-    padding: 10px;
-    overflow: scroll; }
+    flex: 2;
+    padding: 0;
+    overflow: visible;
+    top: 0px; }
+    #homeDisplay #hemanthifyPosts #post-form-con {
+      background-color: white;
+      border: none; }
+      #homeDisplay #hemanthifyPosts #post-form-con #post-button {
+        width: 100%; }
+    #homeDisplay #hemanthifyPosts #postForm {
+      display: flex;
+      flex-direction: column;
+      gap: 0; }
+    #homeDisplay #hemanthifyPosts #post-list {
+      list-style-type: none; }
   #homeDisplay #userFriends {
-    width: 30%;
+    margin: 2%;
+    flex: 1;
     padding: 10px;
-    border-left: 3px solid grey; }
+    border: 1px solid black;
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+    margin-top: 10%; }
+    #homeDisplay #userFriends .total-user-data a {
+      text-decoration: none; }
+    #homeDisplay #userFriends .total-user-data img {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 100%; }
+  #homeDisplay #totalUsers {
+    margin: 2%;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid black;
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+    margin-top: 10%; }
+    #homeDisplay #totalUsers .total-user-data a {
+      text-decoration: none; }
+    #homeDisplay #totalUsers .total-user-data img {
+      height: 2rem;
+      width: 2rem;
+      border-radius: 100%; }

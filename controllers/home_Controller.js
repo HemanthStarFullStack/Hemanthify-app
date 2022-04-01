@@ -1,6 +1,5 @@
 const post = require("../models/post");
 const user = require("../models/user"); 
-const Friends = require("../models/friends");
 module.exports.home = async function(req,res){
     try{
         let postData = await post.find({})
@@ -14,14 +13,25 @@ module.exports.home = async function(req,res){
             populate:{
                 path:'user',
             },
-        }).populate('likes')
-        let userData = await user.find({});
-        
+        }).populate('likes');
+        let userData = {};
+        let followerData = {}
+        if(req.user !== undefined){
+            userData = await user.find({});
+            followerData = await user.findById(req.user.id).populate('following');
+            console.log("@@@@@@@@@@@@@@@@@@@@@@@",followerData);
+        }
+        if(userData.length > 0){
+            userData = await userData.filter((user)=>{
+                return user.id != req.user.id;
+            });
+             
+        }
         return res.render('home',{
             title:'Hemanthify Feed',
             posts:postData,
             users:userData,
-             
+            followers:followerData
         });
 
     }catch(err){
