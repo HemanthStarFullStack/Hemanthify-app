@@ -6,7 +6,7 @@ body{
 }
 #chatPageCon{
     display: flex;
-    height: 100%;
+    height:calc(100vh - 5rem);
     width:100%;
 }
 .friends-container{
@@ -14,11 +14,9 @@ body{
     height: 100%;
     display:flex;
     flex-direction: column;
-    border: 1px solid black;
+    
     .friend-heading{
-        flex: 1;
-        font-size: 1rem;
-        height:10%
+        font-size: 2rem;
     }
     #friends-div{
         flex-direction: column;
@@ -56,36 +54,54 @@ body{
     width: 100%;
 }
 #chat-DOM{
-    border: 1px solid black;
     height: 100%;
     flex: 3;
-    border: 1px solid black;
+    border: 1px solid;
+     
     #chat-container{
-        overflow:scroll;
         z-index:1;
-        height:100%;
+        height: calc(100vh - 5rem);;
         display: flex;
         flex-direction:column;
-        border: 2px solid black;
-        .chat-box{
-            list-style: none;
-            padding: 10px;
-            background-color: white;
-            overflow: auto;
-            .self-message{
-               margin-left: auto;
-               background-color: darkkhaki;
-               width:20%;
-               right: 0;
+        .ul-class{
+            height: 100%;
+            overflow: scroll;
+            .chat-box{
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                .self-message{
+                   margin-left: auto;
+                   background-color: darkkhaki;
+                   right: 0;
+                   display: flex;
+                   justify-content: flex-end;
+                   margin-top: 2%;
+                   border-radius: 3rem;
+                   padding: 1%;
+                }
+                .other-message{
+                   margin-right: auto;
+                   background-color: darksalmon;
+                   display: flex;
+                   justify-content: flex-end;
+                   margin-top: 2%;
+                   border-radius: 3rem;
+                   padding: 1%;
+                }
             }
-            .other-message{
-                background-color: darksalmon;
-                width: 20%;
-            }
+
         }
         #input-id{
             background-color: rgb(225, 231, 233);
             display: flex;
+            input{
+                flex: 3;
+            }
+            button{
+                flex: 1;
+            }
         }
     
     }

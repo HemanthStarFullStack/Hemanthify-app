@@ -4,9 +4,18 @@ body {
 
 .pro-img-con {
   width: 100%;
-  height: 100%;
+  height: 60vh;
   display: flex;
-  justify-content: center; }
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: gray; }
   .pro-img-con img {
-    height: 4rem;
-    width: 4rem; }
+    height: 50% !important;
+    width: auto !important;
+    border-radius: 100% !important; }
+  .pro-img-con .edit.div {
+    display: flex; }
+  .pro-img-con #edit-form {
+    display: flex;
+    flex-direction: column; }

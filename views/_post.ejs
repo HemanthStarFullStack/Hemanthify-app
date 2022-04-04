@@ -14,7 +14,7 @@
                         <div class="btn-group dropstart ">
                             <button type="button" class="btn btn-secondary dropdown-toggle badge rounded-pill bg-light text-dark btn-lg" data-bs-toggle="dropdown" aria-expanded="false">
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu padding">
                                 <li><a class="dropdown-item" href="/post/delete_post/?id=<%=post._id%>">Delete</a></li>
                             </ul>
                          </div>
@@ -31,33 +31,44 @@
             <%}%>
         </div>
         <br>
-        <div class="like-container">
-            <small>
-                <a href="/likes/toggle/?id=<%=post._id%>&type=Post" class="toggle-like" data-likes="<%=post.likes.length%>">
-                    <%=post.likes.length%>
-                    likes
-                </a>
-            </small>
-        </div>
-        <div> 
-            <%if(locals.user) {%>
-                    <form action="/comments/update" method="POST" id="post-comments-<%=post._id%>">
-                        <input type="text" name= "content" placeholder="add comment">
-                        <input type="hidden" name ="post" value="<%=post._id%>">
-                        <input type="submit" value="addComment">
-                    </form>
-            <%}%>
-            <div class="post-comment-list">
-                <p>
-                    <ul id="post-listComments-<%=post._id%>"> 
-                        <%for (comment of post.comments){%>
-                                <%-include('_comment')-%>
-                        <%}%>
-                    </ul>
-                </p>
-            </div>            
-        </div>
-    </div> 
+        <div class="post-bottom-row">
+                <div class="like-container">
+                    <small>
+                        <a href="/likes/toggle/?id=<%=post._id%>&type=Post" class="toggle-like" data-likes="<%=post.likes.length%>">
+                            <%=post.likes.length%>
+                            <%if(post.likes.findIndex(like => like.user == locals.user.id)!=-1){%>
+                                <i class="fa-solid fa-heart" ></i>
+                            <%}else{%>
+                                <i class="fa-regular fa-heart"></i>
+                            <%}%>
+                        </a>
+                    </small>
+                </div>
+                <div class="comment-area"> 
+                    <%if(locals.user) {%>
+                        <div id="comment-form-con" >
+                            <button class="comment-button" data-bs-toggle="collapse" href="#postFormContainer-<%=post._id%>" role="button" aria-expanded="false" aria-controls="postFormContainer"> 
+                                <i class="fa-regular fa-comment"></i>
+                            </button>
+                            <div class="collapse" id="postFormContainer-<%=post._id%>">
+                                <form action="/comments/update" method="POST" id="post-comments-<%=post._id%>">
+                                    <input type="text" name= "content" placeholder="add comment">
+                                    <input type="hidden" name ="post" value="<%=post._id%>">
+                                    <input type="submit" value="addComment">
+                                </form>
+                                <div class="post-comment-list">
+                                        <ul id="post-listComments-<%=post._id%>"> 
+                                            <%for (comment of post.comments){%>
+                                                    <%-include('_comment')-%>
+                                            <%}%>
+                                        </ul>
+                                </div>   
+                            </div>
+                        </div>
+                    <%}%>         
+                </div>
+            </div>
+        </div> 
 
 </li>
 <script>

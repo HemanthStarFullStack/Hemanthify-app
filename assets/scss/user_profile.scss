@@ -4,11 +4,22 @@ body{
 }
 .pro-img-con{
     width: 100%;
-    height:100%;
+    height:60vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    background-color: gray;
     img{
-        height: 4rem;
-        width: 4rem;
+        height: 50% !important;
+        width: auto !important;
+        border-radius: 100% !important;
+    }
+    .edit.div{
+        display: flex;
+    }
+    #edit-form{
+        display: flex;
+        flex-direction: column;
     }
 }

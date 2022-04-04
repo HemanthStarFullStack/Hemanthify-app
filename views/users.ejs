@@ -2,13 +2,23 @@
 <div class="pro-img-con">
     <img src="<%=users_profile.avatar%>" alt="<%=users_profile.name%>">
     <%if(locals.user.id ==  users_profile.id){%>
-       <h3>Edit Crdentials</h3>
-                <form action="/users/update/<%=users_profile.id%>" enctype="multipart/form-data" method="post">
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+               Edit
+            </button>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body edit-div">
+                <h3>Edit Crdentials</h3>
+                <form action="/users/update/<%=users_profile.id%>" enctype="multipart/form-data" method="post" id="edit-form">
                     <input type="text" name="name" placeholder="Your Name" value="<%=users_profile.name%>">
                     <input type="email" name="email" placeholder="Your Email" value="<%=users_profile.email%>">
                     <input type="file" name="avatar" placeholder="profile-pic">
                     <button>Update</button>
                 </form>
+            </div>
+          </div>
+        
     <%}%>
 </div>
 <p><%= users_profile.name%></p>

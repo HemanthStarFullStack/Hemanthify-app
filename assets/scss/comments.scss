@@ -1,16 +1,57 @@
 .comment-li-con{
     display: flex;
     width: 100%;
+    box-shadow: 0px 6px 26px 0px grey;
+    margin: 0.5rem;
     .comment-container{
         display: flex;
-        border: 1px solid black;
+        align-items: center;
+        .flex-arrangement{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .comment-content{
+                justify-content: center;
+                font-weight: 500;
+                span{
+                    font-weight: 1000;
+                }
+            }
+        }
         a{
             text-decoration: none;
         }
+        .comment-delete-button{
+            i{
+                pointer-events: none;
+            }
+        }
+        .comment-image-class{
+            height: 3rem;
+            width: 3rem;
+            overflow: hidden;
+            border-radius: 100%;
+            img{
+                width: auto;
+                height: 3rem;
+            }
+        }
+
     }
-    .likes-container{
-        a{
-            text-decoration: none;
+    .flex-arrangement-2{
+        display: flex;
+        .likes-container{
+            margin-right: 10%;
+            margin-top: 4%;
+            a{
+                display: flex;
+                text-decoration: none;
+                 
+                    i{
+                        pointer-events: none;
+                    }
+            }
         }
     }
 }

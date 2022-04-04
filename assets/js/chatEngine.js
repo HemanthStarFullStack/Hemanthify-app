@@ -34,8 +34,8 @@
             this.DOMhtml = this.newChaDOM(this.messageData);
             $('.delete-box').remove();
             this.chatDOM  = $('#chat-DOM');
-            $("#remove").remove();
             this.chatDOM.prepend(this.DOMhtml);
+            scrollTo();
             this.socket = io.connect('http://localhost:5000');
             if(this.userName){
                 this.connectionHandler();
@@ -44,18 +44,18 @@
         newChaDOM = function(messageData){
             let self  = this;
             return $(`<div id ="chat-container" class="delete-box">
-                            <div>
-                            </div>
-                            <ul class="chat-box">
-                            ${messageData == null ? '': messageData.messages.map(function(message){
+                            <div class="ul-class">
+                                <ul class="chat-box">
+                                    ${messageData == null ? '': messageData.messages.map(function(message){
                                         if(message.User == self.sendId){
-                                           return `<li class="self-message">${message.message}</li>`
+                                        return `<li class="self-message">${message.message}</li>`
                                         }
                                         else{
                                             return `<li class="other-message">${message.message}</li>`
                                         }
-                                }).join('')}
-                            </ul>
+                                    }).join('')}
+                                </ul>
+                            </div>
                             <div id="input-id">
                                 <input type="text" name="Message" id="type-message" placeholder="type your message............">
                                 <button id="send-message">Send</button>
@@ -83,12 +83,30 @@
             $('#send-message').click(function(){
                 let message = $('#type-message').val();
                 console.log(message);
-                self.socket.emit('send_message',{
-                        message:message,
-                        user_Name:self.userName,
-                        chatRoom: chatName,
-                        Id : self.sendId
-                    });
+                if(message !== ''){
+                    self.socket.emit('send_message',{
+                            message:message,
+                            user_Name:self.userName,
+                            chatRoom: chatName,
+                            Id : self.sendId
+                        });
+                }
+                $('#type-message').val('');
+            });
+            $('#type-message').on('keypress',function(e){
+                console.log(e);
+                if(e.key== 'Enter'){
+                    let message = $('#type-message').val();
+                    if(message !== ''){
+                        self.socket.emit('send_message',{
+                            message:message,
+                            user_Name:self.userName,
+                            chatRoom: chatName,
+                            Id : self.sendId
+                        });
+                    }
+                $('#type-message').val('');
+                }
             });
             self.socket.on('recieve_message',function(data){
                 console.log('message recieved',data.message);
@@ -101,7 +119,16 @@
                     html: data.message
                 }));
                 newMessage.addClass(messageType);
-                $('.chat-box').append(newMessage);
+                $('.ul-class ul').append(newMessage);
+                scrollTo();
             });
         }
 }
+let scrollTo = function(){
+    let lastChild = document.querySelector('.chat-box li:last-child');
+    let bottom = lastChild.getBoundingClientRect().bottom;
+    let ulClass = document.querySelector('.ul-class');
+    ulClass.scrollBy(0,bottom);
+}
+
+ 

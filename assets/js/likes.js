@@ -11,10 +11,18 @@
             type: 'Post',
             url :target.href,
             success: function(data){
-                console.log(data);
-                let likeData = parseInt(target.dataset.likes);
-                $(target).attr('data-likes',likeData);
-                $(target).html(`${data.data.likesLen} likes`)
+                if(data.data.deleted == true){
+                    console.log(data);
+                    let likeData = parseInt(target.dataset.likes);
+                    $(target).attr('data-likes',likeData);
+                    $(target).html(`${data.data.likesLen} <i class="fa-regular fa-heart"></i>`)
+                }
+                else{
+                    console.log(data);
+                    let likeData = parseInt(target.dataset.likes);
+                    $(target).attr('data-likes',likeData);
+                    $(target).html(`${data.data.likesLen} <i class="fa-solid fa-heart"></i>`)
+                }
             },
             error: function(err){
                 console.log(err);

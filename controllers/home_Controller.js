@@ -8,25 +8,38 @@ module.exports.home = async function(req,res){
         .populate({
             path:'comments',
             populate:{
-                path:'likes'
+                path:'likes',
             },
+        }).populate('likes')
+        .populate({
+            path:'comments',
             populate:{
                 path:'user',
             },
-        }).populate('likes');
+        });
+        console.log(postData[0].comments);
         let userData = {};
         let followerData = {}
         if(req.user !== undefined){
-            userData = await user.find({});
+            userData = await user.find({})
             followerData = await user.findById(req.user.id).populate('following');
-            console.log("@@@@@@@@@@@@@@@@@@@@@@@",followerData);
         }
         if(userData.length > 0){
             userData = await userData.filter((user)=>{
                 return user.id != req.user.id;
             });
-             
         }
+        userData = userData.filter((user)=>{
+            let data = followerData.following.findIndex((follow)=>{
+                return follow.id == user.id
+            })
+            if(data == -1){
+                return true
+            }
+            else{
+                return false
+            }
+        });
         return res.render('home',{
             title:'Hemanthify Feed',
             posts:postData,

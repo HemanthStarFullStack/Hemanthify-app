@@ -1,29 +1,41 @@
 <link rel="stylesheet" href="/css/userSignIn.css">
- 
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=neon">
     <div class="userSignIn"> 
-        <div id="signIn-name">
-            <h1>sign in</h1>
+        <div class="sign-in-image">
+            <img src="/images/signIn.jpg" alt="" srcset="">
         </div>
         <div id="formArea">
-            <form action="/users/create-session" method="POST">
-                <div id="mail">
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div id="password">
-                    <input type="password" name="password" placeholder="Password" required> 
-                </div> 
+            <div id="signIn-name" class="font-effect-neon">
+                Sign in
+           </div>
+           <div class="form-class">
+                <form action="/users/create-session" method="POST">
+                    <div id="mail" class="margin-bottom">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div id="password" class="margin-bottom">
+                        <input type="password" name="password" placeholder="Password" required> 
+                    </div>
+                    <div class="margin-bottom sign-in-button">
+                        <div>
+                            <input type="submit" value="Sign in">
+                        </div>
+                        <div>
+                            <a href="/users/auth/google" id="google-logo"><i class="fa-brands fa-google"></i></a>
+                        </div>
+                    </div>
+                </form>
                  
-                <input type="submit" value="Sign in">
-            </form>
-            <p>
-                <a href="/users/auth/google" id="google-logo"><i class="fa-brands fa-google"></i></a>
-                <small>
-                    <a href="/users/forgotPassword">forgot Password</a>
-                </small>
-            </p>
-            <div>
-                dont have an account?..then <a href="/users/sign-up">SignUp</a>
+           </div>
+           <div class="sign-in-bottom-row">
+                <div>
+                    <a href="/users/sign-up">SignUp</a>
+                </div>
+                <div>
+                    <a href="/users/forgotPassword">forgot password?</a>
+                </div>
             </div>
+                 
         </div>
         
          

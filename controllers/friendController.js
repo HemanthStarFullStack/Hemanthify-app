@@ -12,6 +12,8 @@ module.exports.friends = async function(req,res){
         if(obj){
             await sender.following.pull(obj.to_user);
             await reciever.follower.pull(obj.from_user);
+            await sender.chatConnection.pull(obj.to_user);
+            await reciever.chatConnection.pull(obj.from_user);
             obj.remove();
             sender.save();
             reciever.save();
@@ -29,6 +31,8 @@ module.exports.friends = async function(req,res){
     });
     await sender.following.push(friObj.to_user);
     await reciever.follower.push(friObj.from_user);
+    await sender.chatConnection.push(friObj.to_user);
+    await reciever.chatConnection.push(friObj.from_user);
     sender.save();
     reciever.save();
     if(friObj){

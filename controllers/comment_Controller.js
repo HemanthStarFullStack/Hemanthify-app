@@ -2,11 +2,13 @@ const comment = require('../models/comments');
 const post = require('../models/post');
 const queue = require('../config/kue');
 const Like = require('../models/like');
+const User = require('../models/user');
 module.exports.comment_section  = async function(req,res)
 {   
     try{
         let postData = await post.findById(req.body.post);
-        
+        let userData = await User.findById(req.user.id).populate();
+        console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",userData.avatar);
         if(postData)
         {
             let commentNew = await comment.create(
@@ -32,6 +34,7 @@ module.exports.comment_section  = async function(req,res)
                             commentor_con:req.body.content,
                             commentor_name:req.user.name,
                             comment_id: commentNew._id,
+                            commentor_avatar:userData.avatar,
                             post_id:req.body.post
                         },
                         message:"comment-Created"

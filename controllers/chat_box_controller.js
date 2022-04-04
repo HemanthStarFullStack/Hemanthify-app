@@ -1,17 +1,16 @@
 const user = require('../models/user');
 const chatDB = require('../models/chatDB');
 module.exports.chat = async function(req,res){
-    console.log(req.params.sendId);
     let activeUser = await user.findById(req.params.sendId)
     .populate({
-        path:'following',
+        path:'chatConnection',
         populate:{
             path:'_id'
         }
     });
     return res.render('chat_box',{
         title:"Chat",
-        friendData:activeUser.following
+        friendData:activeUser,
     });
 }
 module.exports.customChatRoom  = async function(req,res){

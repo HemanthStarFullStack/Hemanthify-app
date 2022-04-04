@@ -1,22 +1,8 @@
 #layout-footer{
-    height: 5%;
+    position: fixed;
+    height:2.5rem;
     bottom: 0px;
-    width:100%;
+    width: 100%;
     background-color: var(--header);
-    a{
-        color: white;
-        text-decoration: none;
-    }
-    .footer-nav{
-        ul{
-            list-style: none;
-            li{
-                display:inline-flex;
-                align-content: space-between;
-                margin-right: 1rem;
-
-            }
-            
-        }
-    }
+    color:var(--bgGrad2);
 }

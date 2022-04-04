@@ -1,24 +1,28 @@
 <link rel="stylesheet" href="/css/home.css">
+
  
 <div id="homeDisplay">
     <section id="totalUsers">
+        <h4>
+            People You May Know
+        </h4>
         <%if(locals.user){%>
-            <h4>
-                People You May Know
-            </h4>
-            <% for (u of users){%>
-                    <div class="total-user-data">
-                        <a href="users/profile/<%=u.id%>/<%=locals.user.id%>">
-                            <span>
-                                <img src="<%=u.avatar%>" alt="">
-                            </span>
-                            <span>
-                                <%=u.name%>
-                            </span>
-                        </a>
-                    </div>
+            <%console.log(users.length != 0)%>
+            <%if(users.length != 0){%>
+                    <%for(u of users){%>
+                        <div class="total-user-data">
+                            <a href="users/profile/<%=u.id%>/<%=locals.user.id%>">
+                                <span>
+                                    <img src="<%=u.avatar%>" alt="">
+                                </span>
+                                <span>
+                                    <%=u.name%>
+                                </span>
+                            </a>
+                        </div>
+                    <%}%>
+                <%}%>
             <%}%>
-        <%}%>
     </section>
     <section id = "hemanthifyPosts">
         <span>
@@ -42,14 +46,15 @@
             <%}%>
         </ul>
     </section>
-    <%if(locals.user){%>
-        <section id="userFriends">
+   
+    <section id="userFriends">
             <h1>
-                Followers
+                Following
             </h1>
+        <%if(locals.user && followers.following.length > 0){%>
             <%for(following of followers.following){%>
                 <div class="total-user-data">
-                    <a href="users/profile/<%=u.id%>/<%=locals.user.id%>">
+                    <a href="users/profile/<%=following.id%>/<%=locals.user.id%>">
                         <span>
                             <img src="<%=following.avatar%>" alt="">
                         </span>
@@ -59,8 +64,8 @@
                     </a>
                 </div>
             <%}%>
-        </section>
-    <%}%>
+        <%}%>
+    </section>
     
      
      

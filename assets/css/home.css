@@ -3,7 +3,7 @@
   width: 100%;
   justify-content: center;
   gap: 50px;
-  margin-top: 20px; }
+  margin-bottom: 1.5rem; }
   #homeDisplay #hemanthifyPosts {
     flex: 2;
     padding: 0;
@@ -19,7 +19,8 @@
       flex-direction: column;
       gap: 0; }
     #homeDisplay #hemanthifyPosts #post-list {
-      list-style-type: none; }
+      list-style-type: none;
+      padding: 0; }
   #homeDisplay #userFriends {
     margin: 2%;
     flex: 1;
@@ -27,7 +28,7 @@
     border: 1px solid black;
     height: fit-content;
     position: sticky;
-    top: 40px;
+    top: 2.5rem;
     margin-top: 10%; }
     #homeDisplay #userFriends .total-user-data a {
       text-decoration: none; }
@@ -42,7 +43,7 @@
     border: 1px solid black;
     height: fit-content;
     position: sticky;
-    top: 40px;
+    top: 2.5rem;
     margin-top: 10%; }
     #homeDisplay #totalUsers .total-user-data a {
       text-decoration: none; }

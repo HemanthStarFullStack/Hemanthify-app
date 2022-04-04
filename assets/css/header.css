@@ -21,9 +21,10 @@
     #layout-header nav .auth-links ul {
       margin-top: 4%;
       display: flex;
-      list-style: none; }
+      list-style: none;
+      padding: 0; }
       #layout-header nav .auth-links ul li {
-        padding: 2%;
+        padding: 0;
         font-size: 1.6rem; }
       #layout-header nav .auth-links ul .img-con {
         height: 2rem;
@@ -40,4 +41,4 @@
       color: white;
       text-decoration: none; }
     #layout-header nav #signIN {
-      font-size: 0.4rem; }
+      font-size: 1rem; }

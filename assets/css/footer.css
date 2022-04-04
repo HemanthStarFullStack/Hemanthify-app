@@ -1,14 +1,7 @@
 #layout-footer {
-  height: 5%;
+  position: fixed;
+  height: 2.5rem;
   bottom: 0px;
   width: 100%;
-  background-color: var(--header); }
-  #layout-footer a {
-    color: white;
-    text-decoration: none; }
-  #layout-footer .footer-nav ul {
-    list-style: none; }
-    #layout-footer .footer-nav ul li {
-      display: inline-flex;
-      align-content: space-between;
-      margin-right: 1rem; }
+  background-color: var(--header);
+  color: var(--bgGrad2); }

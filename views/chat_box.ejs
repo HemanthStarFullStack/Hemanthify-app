@@ -6,7 +6,7 @@
             People You Can Mesaage
         </div>
         <div id="friends-div"> 
-                <%for(friend of friendData){%>
+                <%for(friend of friendData.chatConnection){%>
                     <div class="reciever-container">
                             <form action="/chat/chatroom" method ="POST" id="chat-<%=friend._id%>"> 
                                 <input type='hidden' value="<%=friend._id%>" name ="recId">
@@ -26,16 +26,16 @@
                     </div>
                     <%-include('chatScript')-%>
                 <%}%>
-        </div>
+            </div>
     </section>
          
 
     <section id="chat-DOM">
         <div id ="chat-container" class="delete-box">
-            <div>
+            <div class="ul-class">
+                <ul class="chat-box">
+                </ul>
             </div>
-            <ul class="chat-box">
-            </ul>
             <div id="input-id">
                 <input type="text" name="Message" id="type-message" placeholder="type your message............">
                 <button id="send-message">Send</button>

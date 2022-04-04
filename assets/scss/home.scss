@@ -3,7 +3,7 @@
     width: 100%;
     justify-content: center;
     gap: 50px;
-    margin-top: 20px;
+    margin-bottom: 1.5rem;
     #hemanthifyPosts{
         flex:2;
         padding:0;
@@ -23,6 +23,8 @@
         }
         #post-list{
             list-style-type: none;
+            padding:0;
+            
         }
     }
     #userFriends{
@@ -32,7 +34,7 @@
         border: 1px solid black;
         height: fit-content;
         position: sticky;
-        top: 40px;
+        top: 2.5rem;
         margin-top: 10%;
         .total-user-data{
             a{
@@ -52,7 +54,7 @@
         border: 1px solid black;
         height: fit-content;
         position: sticky;
-        top: 40px;
+        top: 2.5rem;
         margin-top: 10%;
         .total-user-data{
             a{

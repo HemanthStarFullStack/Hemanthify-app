@@ -16,8 +16,6 @@
     <script src="/js/comments.js"></script>
     <script src="/js/chatEngine.js"></script>
     <link rel="stylesheet" type="text/css"  href="/css/layout.css">
-     
-     
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     
@@ -27,9 +25,8 @@
         
         <%- include('_header'); -%>
             <%- body%>
-        <div class="footer-class">
-            <%-  include('_footer'); -%>
-        </div>
+        <%-  include('_footer'); -%>
+     
          
         
             <%if(flash.success && flash.success.length>0){%>

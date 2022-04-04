@@ -51,22 +51,44 @@ class PostComments{
 
 
     newCommentDom(comment){
-        // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
-        return $(`<li id="comment-${comment.comment_id}"> 
-                        <small>
-                            <a href="/comments/deleteComment/?id=${comment.comment_id}" class="deleteButton">X</a>
-                            ${comment.commentor_name}
-                            <br>
-                            ${comment.commentor_con}
-                            <br>
-                            <div>
-                                <small>
-                                    <a href="/likes/toggle/?id=${comment.comment_id}&type=Comment" class="toggle-like"> 0 likes </a>
-                                </small>
+        return $(`
+        <div class="comment-li-con">
+            <li id="comment-${comment.comment_id}"> 
+                        <div class="comment-container">
+                            <div class="flex-arrangement">
+                                <div class="comment-image-class">
+                                    <img src="${comment.commentor_avatar}" alt="">
+                                </div>
+                                <div class="comment-name">
+                                    <span>
+                                        ${comment.commentor_name}
+                                    </span>
+                                </div>
+                                <div class="comment-content">
+                                    <span>
+                                        ${comment.commentor_con}
+                                    </span>
+                                </div>
                             </div>
-                        </small>
-                </li>`);
-        }
+                            <div class="comment-delete-button">
+                              <a href="/comments/deleteComment/?id=${comment.comment_id}"class="deleteButton">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </a>
+                            </div>
+                        </div>
+                        <div class="flex-arrangement-2">
+                            <div class="likes-container">
+                                    <a href="/likes/toggle/?id=${comment.comment_id}&type=Comment" class="toggle-like" data-likes="<%=comment.likes.lenght%>">
+                                             
+                                        0
+                                        <i class="fa-regular fa-heart"></i>
+                                           
+                                    </a>
+                            </div>
+                        </div>
+                    </li>
+                </div>`);
+                }
     deleteComment(deleteLink){
         $(deleteLink).click(function(e){
             e.preventDefault();

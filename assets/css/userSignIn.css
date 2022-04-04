@@ -1,7 +1,8 @@
 body {
-  background-image: url(../images/wallpaperflare.com_wallpaper.jpg);
+  background-image: linear-gradient(0deg, #00203FFF 2%, #ADEFD1FF 74%);
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-attachment: fixed; }
 
 .userSignIn {
   position: absolute;
@@ -10,30 +11,75 @@ body {
   transform: translate(-50%, -50%);
   display: flex;
   background-color: transparent;
-  border: 2px solid gray;
-  padding: 2rem;
-  flex-direction: column;
   border-radius: 1rem;
-  box-shadow: 4px  4px 18px -1px  black;
-  width: 44%;
-  height: 45%; }
+  box-shadow: 4px 4px 60px 11px black;
+  width: auto;
+  height: 55%;
+  overflow: hidden; }
+  .userSignIn .sign-in-image {
+    width: auto;
+    overflow: hidden; }
+    .userSignIn .sign-in-image img {
+      height: 100%;
+      width: auto; }
   .userSignIn form {
     align-items: center; }
   .userSignIn a {
     text-decoration: none; }
   .userSignIn #google-logo {
-    font-size: 2rem; }
+    font-size: 2rem;
+    color: var(--bgGrad1); }
   .userSignIn #mail {
     align-self: flex-start; }
+    .userSignIn #mail ::placeholder {
+      color: var(--bgGrad2); }
+    .userSignIn #mail input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      color: var(--bgGrad2);
+      width: 100%; }
   .userSignIn #password {
     align-self: flex-end; }
+    .userSignIn #password ::placeholder {
+      color: var(--bgGrad2); }
+    .userSignIn #password input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      color: var(--bgGrad2);
+      width: 100%; }
 
-#signIn-Name {
-  align-self: flex-start;
-  border: 1px solid black;
-  width: 50%; }
+#signIn-name {
+  font-size: 3rem;
+  display: flex; }
 
 #formArea {
-  align-self: flex-end;
-  border: 1px solid black;
-  width: 50%; }
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(0deg, var(--bgGrad2) 36%, var(--bgGrad1) 100%);
+  padding: 1%; }
+  #formArea .form-class {
+    margin-top: 10%; }
+    #formArea .form-class .sign-in-button {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between; }
+      #formArea .form-class .sign-in-button input {
+        background-color: var(--bgGrad1);
+        border-radius: 1rem;
+        color: var(--bgGrad2);
+        width: 100%; }
+    #formArea .form-class .margin-bottom {
+      margin-bottom: 10%;
+      color: var(--bgGrad2); }
+  #formArea .sign-in-bottom-row {
+    display: flex;
+    justify-content: space-between; }
+
+@media screen and (max-height: 624px) {
+  body {
+    background-color: blue; }
+  .userSignIn {
+    flex-direction: row; } }
