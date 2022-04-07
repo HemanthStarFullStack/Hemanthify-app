@@ -1,9 +1,98 @@
+body{
+    
+    background-image:linear-gradient(0deg,var(--bgGrad2) 36%,var(--bgGrad1) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .sign-Up-Container{
     background-color: cadetblue;
     display: flex;
-    flex-direction: column;
-    form{
+    flex-direction: row;
+    height: 55%;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    border-radius:1rem;
+    overflow: hidden;
+    box-shadow: 4px 4px 60px 11px black;
+    .sign-up-image{
+        overflow: hidden;
+        width: 50%;
+        img{
+            width: auto;
+            height: 100%;
+        }
+    }
+    .form-class-signup{
+        width:50%;
         display: flex;
         flex-direction: column;
+        background-image: linear-gradient(0deg,#00203FFF 2%, #ADEFD1FF 74%);
+        padding: 1%;
+        min-height: fit-content;
+        gap: 5%;
+        .sign-up-heading{
+            font-size: 3rem;
+        }
+        .form-con{
+            form{
+                display: flex;
+                flex-direction: column;
+                ::placeholder{
+                    color:var(--bgGrad1);
+                    font-weight: 1000;
+                }
+                input{  
+                    background:transparent;
+                    border: none;
+                    border-bottom: 2px solid black;
+                    color:var(--bgGrad1);
+                    width: 100%;
+                    font-weight: 1000;
+                    margin-top: 5%;
+                }
+    
+            }
+        }
+    }
+}
+.bottom-form-class{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4%;
+    .google-logo{
+        #google-logo{
+            font-size:2rem;
+            color: var(--bgGrad2);
+        }
+    }
+    .sub-button{
+        button{
+            background-color: var(--bgGrad2);
+            border-radius: 1rem;
+            color:var(--bgGrad1);
+            font-weight: 1000;
+        }
+        button:hover{
+            background-color: var(--bgGrad1);
+            color:var(--bgGrad2);
+            font-weight: 1000;
+            border: 1px solid var(--bgGrad2);
+        }
+    }
+}
+@media screen and (max-width:700px) {
+    .sign-Up-Container{
+        width: 65%;
+    }
+    .sign-up-image{
+        width: 25%;
+    }
+    .form-class-signup{
+        width:50%;
     }
 }

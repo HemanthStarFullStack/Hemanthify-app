@@ -4,22 +4,134 @@ body{
 }
 .pro-img-con{
     width: 100%;
-    height:60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: gray;
-    img{
-        height: 50% !important;
-        width: auto !important;
-        border-radius: 100% !important;
-    }
+    overflow: hidden;
     .edit.div{
         display: flex;
     }
     #edit-form{
         display: flex;
         flex-direction: column;
+    }
+    .img-con{
+        height: 200px;
+        overflow: hidden;
+        width: 200px;
+        border-radius: 100%;
+        box-shadow: 0px 6px 26px 0px black;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+.total-follower-data{
+    a{
+        .follower-container{
+            display: flex;
+            flex-direction: row;
+            .img-con{
+                height: 2.5rem;
+                width: 2.5rem;
+                img{
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    border-radius: 100%;
+                }
+            }
+            .name-con{
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+.total-user-data{
+    border: 1px solid black;
+    background-color:var(--followBg);
+    margin-top: 1%;
+    a{
+        color:white;
+        font-weight: 1000;
+        text-decoration: none;
+    }
+    img{
+        height: 3rem;
+        width: 3rem;
+        border-radius: 100%;
+    }
+}
+.profile-data-container{
+    display: flex;
+    gap: 10%;
+    padding: 3%;
+    .follower-container{
+        flex: 1;
+        position: sticky;
+        top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        height:60vh;
+    }
+    .user-posts{
+        flex: 2;
+        ul{
+            padding: 0;
+        }
+    }
+    .following-container{
+        flex: 1;
+        position: sticky;
+        top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        height: 60vh;
+    }
+}
+.total-user-data:hover{
+    background-color:var(--bgGrad2) ;
+    a{
+        color: var(--bgGrad1);
+    }
+}
+.overflow{
+    overflow-y: scroll;
+    height: 100%;
+}
+@media screen and (max-width:600px){
+    #remove{
+        display: none;
+    }
+    #following-container{
+    flex: 1;
+    top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    height: 60vh;
+    position: relative;
+    margin-bottom: 20%;
+    }
+    #overflow{
+        overflow-y: scroll;
+        height: 100%;
+        display: flex;
+        gap: 1%;
+    }
+    #profile-data-container{
+        flex-direction: column-reverse;
+    }
+    .total-user-data{
+        padding: 5%;
+        a{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }

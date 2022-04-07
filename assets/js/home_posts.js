@@ -64,37 +64,37 @@
 //     </li>`)
 //     }
 
-//     deletePost = function(deleteLink){
-//         $(deleteLink).click(function(e){
-//             e.preventDefault();
-//             $.ajax({
-//                 type:'get',
-//                 url:$(deleteLink).prop('href'),
-//                 success: function(data){
-//                     $(`#post-${data.data.post_id}`).remove();
-//                     new Noty({
-//                         theme: 'relax',
-//                         text: "Post Deleted",
-//                         type: 'success',
-//                         layout: 'topRight',
-//                         timeout: 1500
+    // deletePost = function(deleteLink){
+    //     $(deleteLink).click(function(e){
+    //         e.preventDefault();
+    //         $.ajax({
+    //             type:'get',
+    //             url:$(deleteLink).prop('href'),
+    //             success: function(data){
+    //                 $(`#post-${data.data.post_id}`).remove();
+    //                 new Noty({
+    //                     theme: 'relax',
+    //                     text: "Post Deleted",
+    //                     type: 'success',
+    //                     layout: 'topRight',
+    //                     timeout: 1500
                         
-//                     }).show();
-//                 },error: function(error){
-//                     console.log(error.responseText);
-//                 }
-//             });
-//         })
-//     }
+    //                 }).show();
+    //             },error: function(error){
+    //                 console.log(error.responseText);
+    //             }
+    //         });
+    //     })
+    // }
      
 
-//     let deletePostOld= function(){
-//         for(post of $('#post-list>li')){
-//             let delButton = $(' .delete-post-button',post);
-//             deletePost(delButton);
-//         };
-//     }
-//     deletePostOld();
+    let deletePostOld= function(){
+        for(post of $('#post-list>li')){
+            let delButton = $(' .delete-post-button',post);
+            deletePost(delButton);
+        };
+    }
+    deletePostOld();
 //     createPost();
     
     

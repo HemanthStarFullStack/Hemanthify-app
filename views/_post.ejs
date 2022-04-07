@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/post.css">
-<li id="post-<%=post._id%>">
+<div id="post-<%=post._id%>" class="post-class">
     <div class="post-container">
         <div class="post-top-row">
                 <div class="post-user-profile-pic">
@@ -70,7 +70,7 @@
             </div>
         </div> 
 
-</li>
+</div>
 <script>
     new PostComments(`<%=post._id%>`);
 </script>

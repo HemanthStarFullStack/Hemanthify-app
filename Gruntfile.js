@@ -1,7 +1,8 @@
 
 const sass = require('node-sass');
 const grunt=require('grunt');
-
+const env = require('./config/enivironment');
+const path = require('path');
 require('load-grunt-tasks')(grunt);
 
 module.exports = function(grunt) {
@@ -16,9 +17,9 @@ module.exports = function(grunt) {
               },
               files: [{                      
                 expand:true,
-                cwd: 'assets/scss',
+                cwd:path.join(__dirname,env.grunt_path),
                 src: '**/*.scss',
-                dest: 'assets/css',
+                dest:path.join(__dirname,env.grunt_path_css),
                 ext: '.css'
               }]
             }

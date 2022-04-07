@@ -17,35 +17,51 @@
                 data:self.form.serialize(),
                 success: function(data){
                     console.log(data);
-                    new ChatEngine(data.data.recId,data.data.sendId,data.data.recName,data.data.messageData);
+                    new ChatEngine(data.data.recId,data.data.sendId,data.data.recName,data.data.messageData,data.data.rec_data);
                 }
             });
          }
     }
     class ChatEngine{
-        constructor(RecId,sendId,userName,messageData){
+        constructor(RecId,sendId,userName,messageData,rec_data){
             this.recId = RecId;
             this.sendId = sendId;
             this.userName = userName;
             this.messageData= messageData;
+            this.rec_data = rec_data
             console.log("recieverId",this.recId)
             console.log("senderId",this.sendId)
             console.log("userName",this.userName);
-            this.DOMhtml = this.newChaDOM(this.messageData);
+            this.DOMhtml = this.newChaDOM(this.messageData,this.rec_data);
             $('.delete-box').remove();
             this.chatDOM  = $('#chat-DOM');
             this.chatDOM.prepend(this.DOMhtml);
+            $('#remove2').remove();
             scrollTo();
+            removes();
             this.socket = io.connect('http://localhost:5000');
             if(this.userName){
                 this.connectionHandler();
             }
         }
-        newChaDOM = function(messageData){
+        newChaDOM = function(messageData,rec_data){
             let self  = this;
-            return $(`<div id ="chat-container" class="delete-box">
-                            <div class="ul-class">
-                                <ul class="chat-box">
+            return $(` <div id ="chat-container" class="delete-box">
+                                <div class="user-details">
+                                    <div id="image">
+                                        <img src="${rec_data.avatar}" alt="">
+                                        <span>
+                                            ${rec_data.name}
+                                        </span>
+                                    </div>
+                                    <div class="remove">
+                                        <button id="remove">
+                                            <i class="fa-solid fa-circle-arrow-left"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="ul-class">
+                                    <ul class="chat-box">
                                     ${messageData == null ? '': messageData.messages.map(function(message){
                                         if(message.User == self.sendId){
                                         return `<li class="self-message">${message.message}</li>`
@@ -54,13 +70,15 @@
                                             return `<li class="other-message">${message.message}</li>`
                                         }
                                     }).join('')}
-                                </ul>
-                            </div>
-                            <div id="input-id">
-                                <input type="text" name="Message" id="type-message" placeholder="type your message............">
-                                <button id="send-message">Send</button>
-                            </div>
-                    </div>`)
+                                    </ul>
+                                </div>
+                                <div id="input-id">
+                                    <input type="text" name="Message" id="type-message" placeholder="type your message............">
+                                    <button id="send-message">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>`)
                 }
         connectionHandler(){
             console.log("$$$$$$$$$$$$$$$$$$$$$$$$");
@@ -126,9 +144,17 @@
 }
 let scrollTo = function(){
     let lastChild = document.querySelector('.chat-box li:last-child');
-    let bottom = lastChild.getBoundingClientRect().bottom;
-    let ulClass = document.querySelector('.ul-class');
-    ulClass.scrollBy(0,bottom);
+    if(lastChild!=null){
+        let bottom = lastChild.getBoundingClientRect().bottom;
+        let ulClass = document.querySelector('.ul-class');
+        ulClass.scrollBy(0,bottom);
+    }
 }
 
- 
+let removes = function(){
+    let button = $('#remove');
+    button.on('click',function(e){
+        e.preventDefault();
+        $('.delete-box').remove();
+    })
+}

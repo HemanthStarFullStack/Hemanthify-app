@@ -4,6 +4,7 @@
     --profileBackground : cyan;
     --bgGrad1: #00203FFF;
     --bgGrad2: #ADEFD1FF; 
+    --followBg :#00203FFF;
 }
 body{
     height:100%;
@@ -17,4 +18,9 @@ body{
         bottom:0;
         width: 100%;
     }
+}
+::-webkit-scrollbar {
+    width: 0;   
+    height: 0;
+    background: transparent;  
 }

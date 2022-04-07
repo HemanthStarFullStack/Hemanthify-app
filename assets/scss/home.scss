@@ -1,70 +1,126 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 #homeDisplay{
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 50px;
     margin-bottom: 1.5rem;
+    padding: 2%;
     #hemanthifyPosts{
         flex:2;
         padding:0;
         overflow: visible;
         top: 0px;
-        #post-form-con{
-            background-color: white;
-            border: none;
-            #post-button{
-                width:100%;
+        .all-posts{
+            #post-list{
+                 
+                padding:0;
+                
             }
-        }
-        #postForm{
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-        #post-list{
-            list-style-type: none;
-            padding:0;
-            
         }
     }
     #userFriends{
-        margin:2%;
         flex:1;
         padding: 10px;
-        border: 1px solid black;
-        height: fit-content;
+        height:  80vh;
         position: sticky;
         top: 2.5rem;
         margin-top: 10%;
-        .total-user-data{
-            a{
-                text-decoration: none;
+    }
+    #totalUsers{ 
+        flex:1;
+        padding: 10px;
+        height: 80vh;
+        position: sticky;
+        top: 2.5rem;
+        margin-top: 10%;
+    }
+}
+.total-user-data{
+    border: 1px solid black;
+    background-color:var(--followBg);
+    margin-top: 1%;
+    padding: 0.5rem;
+    a{
+        text-decoration: none;
+        color:white;
+        font-weight: 1000;
+    }
+    img{
+        height: 3rem;
+        width: 3rem;
+        border-radius: 100%;
+    }
+}
+.total-user-data:hover{
+    background-color:var(--bgGrad2) ;
+    a{
+        color: var(--bgGrad1);
+    }
+}
+.post-form{
+    #post-form-con{
+        background-color: white;
+        border: none;
+        padding:0.5rem ;
+        button{
+            background-color:var(--bgGrad2) ;
+            color:var(--bgGrad1);
+            font-weight: 1000;
+        }
+        #postFormContainer{
+            #file-in{
+                background-color: var(--bgGrad1);
+                color:var(--bgGrad2);
+                font-weight: 1000;
             }
-            img{
-                height: 2rem;
-                width: 2rem;
-                border-radius: 100%;
+            .submit{
+                background-color:var(--bgGrad2);
+                font-weight: 500;
+                color: var(--bgGrad1);
             }
+            .submit:hover{
+                background-color:var(--bgGrad1);
+                font-weight: 1000;
+                color: var(--bgGrad2);
+            }
+        }
+        #post-button{
+            width:100%;
         }
     }
+    #postForm{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+.totalUserlist{
+    overflow-y:scroll;
+    height: 100%;
+     
+}
+@media screen and (max-width:595px) {
+    #home-display{
+        display: flex;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        padding: 1%;
+    }
+    #userFriends{
+        display: none;
+    }
     #totalUsers{
-        margin:2%;
-        flex:1;
-        padding: 10px;
-        border: 1px solid black;
-        height: fit-content;
-        position: sticky;
-        top: 2.5rem;
-        margin-top: 10%;
-        .total-user-data{
-            a{
-                text-decoration: none;
-            }
-            img{
-                height: 2rem;
-                width: 2rem;
-                border-radius: 100%;
-            }
-        }
+         
+        display: none;
+    }
+    #hemanthifyPosts{
+        margin-left: 10%;
+        margin-right: 10%;
+        flex: 4;
     }
 }

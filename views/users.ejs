@@ -1,6 +1,26 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 <div class="pro-img-con">
-    <img src="<%=users_profile.avatar%>" alt="<%=users_profile.name%>">
+    <div class="img-con">
+        <img src="<%=users_profile.avatar%>" alt="<%=users_profile.name%>">
+    </div>
+    <div class="name-con">
+        <%= users_profile.name%>
+        <%if(locals.user.id !=  users_profile.id){%>
+            <%if(bools == true){%>
+                <form action="/users/friends/" method="post" class="friendClass" id="addFriend">
+                    <input type="hidden" name = 'senderId' value="<%=locals.user.id%>">
+                    <input type="hidden" name= "recieverId" value="<%=users_profile.id%>">
+                    <button class="friendButton">Follow</button>
+                </form>
+            <%}else{%>
+                <form action="/users/friends/" method="post" class="friendClass" id="addFriend">
+                    <input type="hidden" name = 'senderId' value="<%=locals.user.id%>">
+                    <input type="hidden" name= "recieverId" value="<%=users_profile.id%>">
+                    <button class="friendButton">UnFollow</button>
+                </form>
+            <%}%>
+        <%}%>
+    </div>
     <%if(locals.user.id ==  users_profile.id){%>
         <p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -21,22 +41,56 @@
         
     <%}%>
 </div>
-<p><%= users_profile.name%></p>
-<p><%= users_profile.email%></p>
-<%if(locals.user.id !=  users_profile.id){%>
-    <%if(bools == true){%>
-        <form action="/users/friends/" method="post" class="friendClass" id="addFriend">
-            <input type="hidden" name = 'senderId' value="<%=locals.user.id%>">
-            <input type="hidden" name= "recieverId" value="<%=users_profile.id%>">
-            <button class="friendButton">Follow</button>
-        </form>
-    <%}else{%>
-        <form action="/users/friends/" method="post" class="friendClass" id="addFriend">
-            <input type="hidden" name = 'senderId' value="<%=locals.user.id%>">
-            <input type="hidden" name= "recieverId" value="<%=users_profile.id%>">
-            <button class="friendButton">UnFollow</button>
-        </form>
-    <%}%>
-<%}%>
+<div class="profile-data-container" id="profile-data-container">
+    <div class="follower-container" id="remove">
+        <h1>
+            Followers
+        </h1>
+        <div class="overflow">
+            <%for(following of user_connections.follower){%>
+                <div class="total-user-data">
+                    <a href="/users/profile/<%=following.id%>/<%=locals.user.id%>">
+                        <span>
+                            <img src="<%=following.avatar%>" alt="">
+                        </span>
+                        <span class="name">
+                            <%=following.name%>
+                        </span>
+                    </a>
+                </div>
+            
+            <%}%>
+        </div>
+    </div>
+    <div class="user-posts">
+        <ul id="post-list">
+            <% for (post of user_posts) {%>
+                 <%-include ('_post')-%>
+            <%}%>
+        </ul>
+    </div>
+    <div class="following-container" id="following-container">
+        <h1>
+            All Users
+        </h1>
+        <div class="overflow" id="overflow"> 
+            <%for(following of all){%>
+                <div class="total-user-data">
+                    <a href="/users/profile/<%=following.id%>/<%=locals.user.id%>">
+                        <span>
+                            <img src="<%=following.avatar%>" alt="">
+                        </span>
+                        <span class="name">
+                            <%=following.name%>
+                        </span>
+                    </a>
+                </div>
+            
+            <%}%>
+        </div>
+    </div>
+    
+</div>
+ 
  
  

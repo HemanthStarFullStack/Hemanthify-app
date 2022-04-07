@@ -2,6 +2,7 @@ const User = require("../models/user");
 const fs = require("fs");
 const path  = require('path');
 const Friends = require("../models/friends");
+const Post = require("../models/post");
 module.exports.profile = async function(req,res){
    
     let Friend = await Friends.find({
@@ -12,12 +13,38 @@ module.exports.profile = async function(req,res){
     if(Friend.length == 0){
         bools = true
     }
-    User.findById(req.params.id , function(err,user){
-       return res.render('users',{
-            title:"Profile",
-            users_profile:user,
-            bools:bools
+    const user = await User.findById(req.params.id)
+    .populate('follower')
+    .populate('following');
+    const post = await Post.find({user:req.params.id})
+    .sort("-createdAt")
+        .populate('user')
+        .populate({
+            path:'comments',
+            populate:{
+                path:'likes',
+            },
+        }).populate('likes')
+        .populate({
+            path:'comments',
+            populate:{
+                path:'user',
+            },
         });
+    const userData = await User.find({});
+    let newUser = {}
+    if(userData.length > 0){
+        newUser = await userData.filter((user)=>{
+            return user.id != req.params.id;
+        });
+    }
+    return res.render('users',{
+        title:"Profile",
+        users_profile:user,
+        user_connections:user,
+        all:newUser,
+        bools:bools,
+        user_posts:post
     });
 }
 module.exports.update = async function(req,res){

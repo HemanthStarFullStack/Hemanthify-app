@@ -1,78 +1,83 @@
-.post-container{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 75%;
-    border: 1px solid black;
-    transform:translate(10%);
-    margin-top: 1%;
-    box-shadow: 0px 6px 26px 0px grey;
-    .delete-button{
-        align-self: flex-start;
-        .padding{
-            padding: 0 !important;
-        }
-    }
-    .post-top-row{
+.post-class{
+    .post-container{
+        position: relative;
         display: flex;
-        align-content: center;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-    }
-    .post-user-name{
-        width: 100%;
-        align-self: center;
-    }
-    .post-user-profile-pic{
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid black;
+        margin-top: 1%;
+        box-shadow: 0px 6px 26px 0px grey;
+        padding: 0.5rem;
+        .delete-button{
             align-self: flex-start;
-            height:3rem;
-            width: 3rem;
-            border-radius: 100%;
-            background-color: var(--header);
-            img{
+            .padding{
+                padding: 0 !important;
+            }
+        }
+        .post-top-row{
+            display: flex;
+            align-content: center;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .post-user-name{
+            width: 100%;
+            align-self: center;
+            font-weight: 1000;
+            margin-left: 1%;
+        }
+        .post-user-profile-pic{
+                align-self: flex-start;
                 height:3rem;
-                border-radius: 100%;
                 width: 3rem;
+                border-radius: 100%;
+                background-color: var(--header);
                 overflow: hidden;
+                img{
+                    height:3rem;
+                    border-radius: 100%;
+                    width: 3rem;
+                    overflow: hidden;
+                }
+           
+        }
+        .post-content{
+            align-self: baseline;
+            margin: 1rem;
+            font-weight: 1000;
+        }
+        .like-container{
+            align-self: baseline;
+            a{
+                text-decoration: none;
             }
-       
-    }
-    .post-content{
-        align-self: baseline;
-        margin: 1rem;
-
-    }
-    .like-container{
-        align-self: baseline;
-        a{
-            text-decoration: none;
-        }
-        i{
-            pointer-events: none;
-        }
-    }
-    .post-comment-list{
-        ul{
-            list-style-type: none;
-            padding: 0;
-            li{
-                width: 100%;
+            i{
+                pointer-events: none;
             }
         }
-    }
-    .post-bottom-row{
-        display: flex;
-        width: 100%;
-        .comment-area{
-            #comment-form-con{
-                width: auto;
-                .comment-button{
-                    border: 1px solid transparent;
-                    background-color: transparent;
+        .post-comment-list{
+            ul{
+                list-style-type: none;
+                padding: 0;
+                li{
+                    width: 100%;
+                }
+            }
+        }
+        .post-bottom-row{
+            display: flex;
+            width: 100%;
+            .comment-area{
+                #comment-form-con{
+                    width: auto;
+                    .comment-button{
+                        border: 1px solid transparent;
+                        background-color: transparent;
+                    }
                 }
             }
         }
     }
 }
+ 

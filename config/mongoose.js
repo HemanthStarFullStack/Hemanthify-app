@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/hemanthify_development');
+const env = require('../config/enivironment');
+mongoose.connect(`mongodb://localhost/${env.db}`);
 
 const db  = mongoose.connection;
 

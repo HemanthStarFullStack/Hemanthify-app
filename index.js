@@ -3,6 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
+const logger = require('morgan');
 // const expressLayouts = require('express-ejs-layouts');
 const db  = require("./config/mongoose")
 console.log(db._connectionString);
@@ -26,15 +27,16 @@ const customMW = require("./config/customMW");
 const googleAuth = require("./config/google-oauth20");
 app.use(express.urlencoded());
 app.use(cookieParser());
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 app.use('/uploads',express.static(__dirname +"/uploads"));
+app.use(logger(env.morgan.mode,env.morgan.options));
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 app.set('view engine','ejs');
 app.set('views','./views');
 app.use(session({
-    name:'Hemanthify',
+    name:env.sessionCookie,
     secret:"something",
     saveUninitialized:false,
     resave:false,

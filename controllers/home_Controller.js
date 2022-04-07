@@ -17,7 +17,6 @@ module.exports.home = async function(req,res){
                 path:'user',
             },
         });
-        console.log(postData[0].comments);
         let userData = {};
         let followerData = {}
         if(req.user !== undefined){

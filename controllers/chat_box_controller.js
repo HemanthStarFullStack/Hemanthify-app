@@ -15,8 +15,7 @@ module.exports.chat = async function(req,res){
 }
 module.exports.customChatRoom  = async function(req,res){
     let messageData = await populateMessage(req.body.sendId,req.body.recId);
-    let rec_userData = await user.findById(req.body.recID);
-    console.log(req.body.recId,req.body.recName,req.body.sendId);
+    let rec_userData = await user.findById(req.body.recId);
     console.log(req.xhr);
     if(req.xhr){
         return res.json({
@@ -25,7 +24,8 @@ module.exports.customChatRoom  = async function(req,res){
                 sendId:req.body.sendId,
                 recId: req.body.recId,
                 recName:req.body.recName,
-                messageData : messageData
+                messageData : messageData,
+                rec_data:rec_userData
             }
         })
     }

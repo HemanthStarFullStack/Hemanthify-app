@@ -18,7 +18,7 @@ body{
     height:55%;
     overflow: hidden;
     .sign-in-image{
-        width:auto;
+        width:50%;
         overflow: hidden;
         img{
             height: 100%;
@@ -47,6 +47,7 @@ body{
             border-bottom: 2px solid black;
             color:var(--bgGrad2);
             width: 100%;
+            font-weight: 1000;
         }
     }
     #password{
@@ -60,6 +61,7 @@ body{
             border-bottom: 2px solid black;
             color:var(--bgGrad2);
             width: 100%;
+            font-weight: 1000;
         }
     }
 }
@@ -68,11 +70,12 @@ body{
         display: flex;
 }
 #formArea{
-    width: auto;
+    width:50%;
     display: flex;
     flex-direction: column;
     background-image:linear-gradient(0deg,var(--bgGrad2) 36%,var(--bgGrad1) 100%);
     padding: 1%;
+    min-height: fit-content;
     .form-class{
         margin-top: 10%;
         .sign-in-button{
@@ -84,6 +87,13 @@ body{
                 border-radius: 1rem;
                 color:var(--bgGrad2);
                 width: 100%;
+                font-weight: 1000;
+            }
+            input:hover{
+                background-color: var(--bgGrad2);
+                color:var(--bgGrad1);
+                border: 1px solid var(--bgGrad1);
+                font-weight: 1000;
             }
         }
         .margin-bottom{
@@ -92,15 +102,61 @@ body{
         }
     }
     .sign-in-bottom-row{
-        display: flex;
-        justify-content: space-between;
+        font-weight: 1000;
+        a{
+            font-weight: 1000;
+            color: var(--bgGrad1);
+            border: 1px solid black;
+            border-radius: 1rem;
+            padding: 2%;
+        }
+        a:hover{
+            font-weight: 1000;
+            color: var(--bgGrad2);
+            border: 1px solid black;
+            border-radius: 1rem;
+            padding: 2%;
+            background-color:var(--bgGrad1) ;
+        }
+    }
+    .fp{
+        margin-top: 3%;
+        font-weight: 1000;
+        a{
+            color: var(--bgGrad1);
+        }
+         
     }
 }
-@media screen and (max-height:624px){
-    body{
-        background-color: blue;
+@media screen and (max-width:624px){
+    #signIn-name{
+        font-size: 1.5rem;
+        display: flex;
     }
-    .userSignIn{
-        flex-direction: row;
+    #userSignIn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        background-color: transparent;
+        border-radius: 1rem;
+        box-shadow: 4px 4px 60px 11px black;
+        width: 100%;
+        height: 55%;
+        overflow: hidden;
+        margin: 4px;
+    }
+    #userSignIn #sign-in-image {
+        width: 25%;
+        overflow: hidden;
+    }
+    #formArea {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        background-image: linear-gradient(0deg, var(--bgGrad2) 36%, var(--bgGrad1) 100%);
+        padding: 1%;
+        min-height: fit-content;
     }
 }

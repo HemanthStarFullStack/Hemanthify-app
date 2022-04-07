@@ -69,20 +69,17 @@ class PostComments{
                                         ${comment.commentor_con}
                                     </span>
                                 </div>
-                            </div>
-                            <div class="comment-delete-button">
-                              <a href="/comments/deleteComment/?id=${comment.comment_id}"class="deleteButton">
+                                <div class="comment-delete-button">
+                                    <a href="/comments/deleteComment/?id=${comment.comment_id}"class="deleteButton">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </a>
+                            </div>
                             </div>
                         </div>
                         <div class="flex-arrangement-2">
                             <div class="likes-container">
                                     <a href="/likes/toggle/?id=${comment.comment_id}&type=Comment" class="toggle-like" data-likes="<%=comment.likes.lenght%>">
-                                             
-                                        0
                                         <i class="fa-regular fa-heart"></i>
-                                           
                                     </a>
                             </div>
                         </div>

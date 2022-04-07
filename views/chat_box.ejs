@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css"  href="/css/chat_box.css">
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Rancho&effect=3d">
 <div id="chatPageCon"> 
-    <section class="friends-container">
+    <section class="friends-container" id="friends-container">
         <div class="font-effect-3d friend-heading">
             People You Can Mesaage
         </div>
@@ -31,16 +31,11 @@
          
 
     <section id="chat-DOM">
-        <div id ="chat-container" class="delete-box">
-            <div class="ul-class">
-                <ul class="chat-box">
-                </ul>
-            </div>
-            <div id="input-id">
-                <input type="text" name="Message" id="type-message" placeholder="type your message............">
-                <button id="send-message">Send</button>
-            </div>
-        </div>
+          <div class="connectionClickRemove" id="remove2">
+                <h1>
+                    Click On a Connection
+                </h1>
+          </div>
     </section>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

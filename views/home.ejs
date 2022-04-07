@@ -1,50 +1,55 @@
 <link rel="stylesheet" href="/css/home.css">
-
- 
 <div id="homeDisplay">
+
     <section id="totalUsers">
-        <h4>
+        <h1>
             People You May Know
-        </h4>
+        </h1>
         <%if(locals.user){%>
             <%console.log(users.length != 0)%>
             <%if(users.length != 0){%>
+                <div class="totalUserlist">
                     <%for(u of users){%>
                         <div class="total-user-data">
                             <a href="users/profile/<%=u.id%>/<%=locals.user.id%>">
                                 <span>
                                     <img src="<%=u.avatar%>" alt="">
                                 </span>
-                                <span>
+                                <span class="name">
                                     <%=u.name%>
                                 </span>
                             </a>
                         </div>
                     <%}%>
+                </div>
                 <%}%>
             <%}%>
     </section>
     <section id = "hemanthifyPosts">
-        <span>
-            Wanna Share Something...
-        </span>
-        <%if (locals.user){%>
-            <div id="post-form-con" >
-                <button id="post-button" data-bs-toggle="collapse" href="#postFormContainer" role="button" aria-expanded="false" aria-controls="postFormContainer"> Post </button>
-                <div class="collapse" id="postFormContainer">
-                    <form action="/post/post_data" id="postForm" method="POST" enctype="multipart/form-data">
-                        <textarea name="content" id="newPost" cols="30" rows="3"></textarea>
-                        <input type="file" name="postPicture" placeholder="Add Image">
-                        <input type="submit" value="submit">
-                    </form>
+        <div class="post-form">
+            <span>
+                Wanna Share Something...
+            </span>
+            <%if (locals.user){%>
+                <div id="post-form-con" >
+                    <button id="post-button" data-bs-toggle="collapse" href="#postFormContainer" role="button" aria-expanded="false" aria-controls="postFormContainer"> Post </button>
+                    <div class="collapse" id="postFormContainer">
+                        <form action="/post/post_data" id="postForm" method="POST" enctype="multipart/form-data">
+                            <textarea name="content" id="newPost" cols="30" rows="3" required></textarea>
+                            <input type="file" name="postPicture" placeholder="Add Image" id="file-in">
+                            <input type="submit" value="submit" class="submit">
+                        </form>
+                    </div>
                 </div>
-            </div>
-        <%}%>
-        <ul id="post-list">
-            <% for (post of posts) {%>
-                 <%-include ('_post')-%>
             <%}%>
-        </ul>
+        </div>
+        <div class="all-posts">
+            <div id="post-list">
+                <% for (post of posts) {%>
+                     <%-include ('_post')-%>
+                <%}%>
+            </div>
+        </div>
     </section>
    
     <section id="userFriends">
@@ -52,23 +57,22 @@
                 Following
             </h1>
         <%if(locals.user && followers.following.length > 0){%>
-            <%for(following of followers.following){%>
-                <div class="total-user-data">
-                    <a href="users/profile/<%=following.id%>/<%=locals.user.id%>">
-                        <span>
-                            <img src="<%=following.avatar%>" alt="">
-                        </span>
-                        <span>
-                            <%=following.name%>
-                        </span>
-                    </a>
-                </div>
-            <%}%>
+            <div class="totalUserlist"> 
+                <%for(following of followers.following){%>
+                    <div class="total-user-data">
+                        <a href="users/profile/<%=following.id%>/<%=locals.user.id%>">
+                            <span>
+                                <img src="<%=following.avatar%>" alt="">
+                            </span>
+                            <span class="name">
+                                <%=following.name%>
+                            </span>
+                        </a>
+                    </div>
+                <%}%>
+            </div>
         <%}%>
     </section>
-    
-     
-     
 </div>
 <script src="/js/home_posts.js"></script>  
 <script src="/js/likes.js"></script>
