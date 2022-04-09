@@ -17,6 +17,7 @@
                 data:self.form.serialize(),
                 success: function(data){
                     console.log(data);
+                    displayFun();
                     new ChatEngine(data.data.recId,data.data.sendId,data.data.recName,data.data.messageData,data.data.rec_data);
                 }
             });
@@ -150,11 +151,26 @@ let scrollTo = function(){
         ulClass.scrollBy(0,bottom);
     }
 }
-
 let removes = function(){
     let button = $('#remove');
     button.on('click',function(e){
+        displayFun();
         e.preventDefault();
         $('.delete-box').remove();
+         
     })
+}
+var count = 0
+let displayFun = function(){
+    console.log(count);
+    if(count == 0){
+        $('#friends-container').css({'display':'none'});
+        $('#chat-DOM').css({'display':'flex'});
+        count+=1;
+    }
+    else{
+        $('#chat-DOM').css({'display':'none'});
+        $('#friends-container').css({'display':'flex'});
+        count-=1;
+    }
 }

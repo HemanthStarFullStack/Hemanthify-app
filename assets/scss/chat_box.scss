@@ -59,7 +59,7 @@ body{
     width: 100%;
 }
 #chat-DOM{
-
+    display: none;
     flex: 3;
     border: 1px solid;
      
@@ -68,6 +68,7 @@ body{
         height:100%;
         display: flex;
         flex-direction:column;
+        width: 100%;
         .ul-class{
             overflow-y: scroll;
             height: 100%;
@@ -161,19 +162,4 @@ body{
     
     }
 }
-@media screen and (max-width:566px) {
-    #friends-container{
-        flex: 0;
-        z-index: 0;
-    }
-    #chat-DOM{
-        flex: 4;
-        z-index: 1;
-        flex-direction: column;
-        #chat-container{
-            z-index: 2;
-        }
-    }
-}
- 
  

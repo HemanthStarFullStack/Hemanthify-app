@@ -85,14 +85,14 @@ body{
         }
     }
 }
-@media screen and (max-width:700px) {
-    .sign-Up-Container{
-        width: 65%;
+@media screen and (max-width:600px) {
+    #sign-Up-Container{
+        width: 80%;
     }
-    .sign-up-image{
-        width: 25%;
+    #sign-up-image{
+        width: 20%;
     }
-    .form-class-signup{
-        width:50%;
+    #form-class-signup{
+        width: 100%;
     }
 }

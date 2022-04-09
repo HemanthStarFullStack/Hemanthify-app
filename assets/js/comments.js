@@ -52,8 +52,9 @@ class PostComments{
 
     newCommentDom(comment){
         return $(`
-        <div class="comment-li-con">
+         
             <li id="comment-${comment.comment_id}"> 
+                    <div class="comment-li-con">
                         <div class="comment-container">
                             <div class="flex-arrangement">
                                 <div class="comment-image-class">
@@ -83,8 +84,9 @@ class PostComments{
                                     </a>
                             </div>
                         </div>
-                    </li>
-                </div>`);
+                    </div>
+                </li>
+                 `);
                 }
     deleteComment(deleteLink){
         $(deleteLink).click(function(e){

@@ -1,10 +1,10 @@
-
 const sass = require('node-sass');
 const grunt=require('grunt');
 const env = require('./config/enivironment');
 const path = require('path');
 require('load-grunt-tasks')(grunt);
-
+grunt.loadNpmTasks('grunt-rev');
+const gPath = path.join(__dirname,env.grunt_path);
 module.exports = function(grunt) {
 
     grunt.initConfig({
@@ -17,13 +17,13 @@ module.exports = function(grunt) {
               },
               files: [{                      
                 expand:true,
-                cwd:path.join(__dirname,env.grunt_path),
+                cwd:gPath,
                 src: '**/*.scss',
                 dest:path.join(__dirname,env.grunt_path_css),
                 ext: '.css'
               }]
             }
-        }
+        } 
     })
 
     grunt.registerTask('default',['sass']);

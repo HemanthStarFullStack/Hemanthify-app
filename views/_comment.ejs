@@ -1,49 +1,50 @@
     
                <link rel="stylesheet" href="/css/comments.css">
-               <div class="comment-li-con">
+                
                     <li id="comment-<%=comment._id%>"> 
-                        <div class="comment-container">
-                            <div class="flex-arrangement">
-                                <div class="comment-image-class">
-                                    <img src="<%=comment.user.avatar%>" alt="">
-                                </div>
-                                <div class="comment-name">
-                                    <span>
-                                        <%=comment.user.name%>
-                                    </span>
-                                </div>
+                        <div class="comment-li-con"> 
+                            <div class="comment-container">
+                                <div class="flex-arrangement">
+                                    <div class="comment-image-class">
+                                        <img src="<%=comment.user.avatar%>" alt="">
+                                    </div>
+                                    <div class="comment-name">
+                                        <span>
+                                            <%=comment.user.name%>
+                                        </span>
+                                    </div>
 
-                                <div class="comment-content">
-                                    <span>
-                                        <%=comment.content%>
-                                    </span>
-                                </div>
-                                <div class="comment-delete-button">
-                                    <%if(locals.user && locals.user.id == comment.user.id){%>
-                                        <a href="/comments/deleteComment/?id=<%=comment.id%>"class="deleteButton">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </a>
-                                    <%}%>
+                                    <div class="comment-content">
+                                        <span>
+                                            <%=comment.content%>
+                                        </span>
+                                    </div>
+                                    <div class="comment-delete-button">
+                                        <%if(locals.user && locals.user.id == comment.user.id){%>
+                                            <a href="/comments/deleteComment/?id=<%=comment.id%>"class="deleteButton">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </a>
+                                        <%}%>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex-arrangement-2">
-                            <div class="likes-container">
-                                    <a href="/likes/toggle/?id=<%=comment._id%>&type=Comment" class="toggle-like" data-likes = "<%=comment.likes.lenght%>">
-                                             
-                                                <%=comment.likes.length%>
-                                           
-                                                <%if(comment.likes.findIndex(like => like.user == locals.user.id)!=-1){%>
-                                                    <i class="fa-solid fa-heart" ></i>
-                                                <%}else{%>
-                                                    <i class="fa-regular fa-heart"></i>
-                                                <%}%>
-                                           
-                                    </a>
+                            <div class="flex-arrangement-2">
+                                <div class="likes-container">
+                                        <a href="/likes/toggle/?id=<%=comment._id%>&type=Comment" class="toggle-like" data-likes = "<%=comment.likes.lenght%>">
+                                                
+                                                    <%=comment.likes.length%>
+                                            
+                                                    <%if(comment.likes.findIndex(like => like.user == locals.user.id)!=-1){%>
+                                                        <i class="fa-solid fa-heart" ></i>
+                                                    <%}else{%>
+                                                        <i class="fa-regular fa-heart"></i>
+                                                    <%}%>
+                                            
+                                        </a>
+                                </div>
                             </div>
                         </div>
                     </li>
-                </div>
                     
                      
               
