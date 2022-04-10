@@ -26,7 +26,7 @@ console.log('server is listening on 5000');
 
 const customMW = require("./config/customMW");
 const googleAuth = require("./config/google-oauth20");
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static(env.asset_path));
 app.use('/uploads',express.static(__dirname +"/uploads"));

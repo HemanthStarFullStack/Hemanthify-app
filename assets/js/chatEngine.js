@@ -40,7 +40,7 @@
             $('#remove2').remove();
             scrollTo();
             removes();
-            this.socket = io.connect('http://localhost:5000');
+            this.socket = io.connect('http://43.204.29.107:5000');
             if(this.userName){
                 this.connectionHandler();
             }
