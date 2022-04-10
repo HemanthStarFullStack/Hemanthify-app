@@ -46,7 +46,7 @@ const production = {
     db:process.env.db,
     smtp:{
         service :process.env.service,
-        host:process.service,
+        host:process.env.host,
         port :process.env.port,
         secure:process.env.secure,
         auth:{
