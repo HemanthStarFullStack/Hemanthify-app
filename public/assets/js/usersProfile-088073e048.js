@@ -1,1 +1,0 @@
-createFriend=function(){target=$(".friendButton");let t=$("#addFriend");t.submit((function(e){e.preventDefault(),$.ajax({type:"Post",url:"/users/friends",data:t.serialize(),success:function(t){console.log(t.data.bools),1==t.data.bools?$(target).html("UnFollow"):0==t.data.bools&&$(target).html("Follow")},error:function(t){console.log(t)}})}))},createFriend();
