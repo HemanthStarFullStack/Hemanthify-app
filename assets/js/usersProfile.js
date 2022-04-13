@@ -9,7 +9,6 @@
                 url:"/users/friends",
                 data: newPostForm1.serialize(),
                 success: function(data){
-                    console.log(data.data.bools)
                     if(data.data.bools == true){
                         $(target).html("UnFollow")
                     }

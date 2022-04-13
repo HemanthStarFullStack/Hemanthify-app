@@ -2,7 +2,6 @@
         constructor(id){
             this.id = id;
             this.form = $(`#chat-${this.id}`);
-            console.log(this.form);
             let self = this;
             this.form.submit(function(e){
                 e.preventDefault()
@@ -16,7 +15,6 @@
                 url:"/chat/chatroom",
                 data:self.form.serialize(),
                 success: function(data){
-                    console.log(data);
                     displayFun();
                     new ChatEngine(data.data.recId,data.data.sendId,data.data.recName,data.data.messageData,data.data.rec_data);
                 }
@@ -30,9 +28,6 @@
             this.userName = userName;
             this.messageData= messageData;
             this.rec_data = rec_data
-            console.log("recieverId",this.recId)
-            console.log("senderId",this.sendId)
-            console.log("userName",this.userName);
             this.DOMhtml = this.newChaDOM(this.messageData,this.rec_data);
             $('.delete-box').remove();
             this.chatDOM  = $('#chat-DOM');
@@ -82,15 +77,11 @@
                             </div>`)
                 }
         connectionHandler(){
-            console.log("$$$$$$$$$$$$$$$$$$$$$$$$");
             let self = this;
             let arr = [self.recId,self.sendId];
             arr.sort();
-            let chatName = arr[0]+"-"+arr[1]
-            console.log(chatName); 
-            console.log(arr);
+            let chatName = arr[0]+"-"+arr[1];
             this.socket.on('connect',function(){
-                console.log('Connection Established');
                 self.socket.emit('join_room',{
                     user_email:this.userName,
                     chatRoom : chatName
@@ -101,7 +92,6 @@
             });
             $('#send-message').click(function(){
                 let message = $('#type-message').val();
-                console.log(message);
                 if(message !== ''){
                     self.socket.emit('send_message',{
                             message:message,
@@ -113,7 +103,6 @@
                 $('#type-message').val('');
             });
             $('#type-message').on('keypress',function(e){
-                console.log(e);
                 if(e.key== 'Enter'){
                     let message = $('#type-message').val();
                     if(message !== ''){
@@ -128,7 +117,6 @@
                 }
             });
             self.socket.on('recieve_message',function(data){
-                console.log('message recieved',data.message);
                 let newMessage = $('<li>');
                 let messageType = 'other-message';
                 if(data.user_Name == self.userName){
@@ -162,7 +150,6 @@ let removes = function(){
 }
 var count = 0
 let displayFun = function(){
-    console.log(count);
     if(count == 0){
         $('#friends-container').css({'display':'none'});
         $('#chat-DOM').css({'display':'flex'});
