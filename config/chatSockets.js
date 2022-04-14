@@ -6,7 +6,7 @@ module.exports.chatSockets = function(socketServer){
     let io = Server(socketServer, {
         // Fixing the cors issue
         cors: {
-            origin: "http://43.204.29.107"
+            origin: "http://hemanthify.in"
         }
     });
     io.sockets.on('connection', function(socket){
