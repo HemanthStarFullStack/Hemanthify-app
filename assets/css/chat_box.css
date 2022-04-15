@@ -74,8 +74,7 @@ body {
           margin-left: auto;
           background-color: var(--bgGrad1);
           right: 0;
-          display: flex;
-          justify-content: flex-end;
+          width: fit-content;
           margin-top: 2%;
           border-radius: 3rem;
           padding: 1%;
@@ -84,13 +83,12 @@ body {
         #chat-DOM #chat-container .ul-class .chat-box .other-message {
           margin-right: auto;
           background-color: var(--bgGrad2);
-          display: flex;
-          justify-content: flex-end;
           margin-top: 2%;
           border-radius: 3rem;
           padding: 1%;
           font-weight: 1000;
-          color: var(--bgGrad1); }
+          color: var(--bgGrad1);
+          width: fit-content; }
     #chat-DOM #chat-container .user-details {
       display: flex;
       flex-direction: row;
