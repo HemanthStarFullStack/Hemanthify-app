@@ -62,7 +62,6 @@ body{
     display: none;
     flex: 3;
     border: 1px solid;
-    margin: 10%;
     #chat-container{
         z-index:1;
         height:100%;
@@ -165,3 +164,8 @@ body{
     }
 }
  
+@media screen and (max-height:650px) {
+    #chat-DOM{
+        margin: 10%;
+    }
+}
