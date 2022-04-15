@@ -62,7 +62,7 @@ body{
     display: none;
     flex: 3;
     border: 1px solid;
-     
+    margin: 10%;
     #chat-container{
         z-index:1;
         height:100%;
@@ -73,6 +73,8 @@ body{
             overflow-y: scroll;
             height: 100%;
             background-image: linear-gradient(90deg,var(--bgGrad1) 0%, var(--bgGrad2) 100%);
+            display: flex;
+            flex-direction: column-reverse;
             .chat-box{
                 list-style-type: none;
                 display: flex;

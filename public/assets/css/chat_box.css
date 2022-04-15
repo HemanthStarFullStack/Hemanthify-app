@@ -51,7 +51,8 @@ body {
 #chat-DOM {
   display: none;
   flex: 3;
-  border: 1px solid; }
+  border: 1px solid;
+  margin: 10%; }
   #chat-DOM #chat-container {
     z-index: 1;
     height: 100%;
@@ -61,7 +62,9 @@ body {
     #chat-DOM #chat-container .ul-class {
       overflow-y: scroll;
       height: 100%;
-      background-image: linear-gradient(90deg, var(--bgGrad1) 0%, var(--bgGrad2) 100%); }
+      background-image: linear-gradient(90deg, var(--bgGrad1) 0%, var(--bgGrad2) 100%);
+      display: flex;
+      flex-direction: column-reverse; }
       #chat-DOM #chat-container .ul-class .chat-box {
         list-style-type: none;
         display: flex;
