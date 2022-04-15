@@ -66,9 +66,7 @@ body {
       flex-direction: column-reverse; }
       #chat-DOM #chat-container .ul-class .chat-box {
         list-style-type: none;
-        justify-content: end;
         background-color: transparent;
-        overflow-y: scroll;
         margin: 0; }
         #chat-DOM #chat-container .ul-class .chat-box .self-message {
           margin-left: auto;
@@ -128,4 +126,4 @@ body {
 
 @media screen and (max-height: 650px) {
   #chat-DOM {
-    margin: 20%; } }
+    margin: 15%; } }
