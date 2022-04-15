@@ -76,8 +76,6 @@ body{
             flex-direction: column-reverse;
             .chat-box{
                 list-style-type: none;
-                display: flex;
-                flex-direction: column;
                 justify-content: end;
                 background-color: transparent;
                 overflow-y: scroll;
