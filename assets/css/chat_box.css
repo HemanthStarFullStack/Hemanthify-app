@@ -51,8 +51,7 @@ body {
 #chat-DOM {
   display: none;
   flex: 3;
-  border: 1px solid;
-  margin: 10%; }
+  border: 1px solid; }
   #chat-DOM #chat-container {
     z-index: 1;
     height: 100%;
@@ -131,3 +130,7 @@ body {
       #chat-DOM #chat-container #input-id #send-message:hover {
         background-color: var(--bgGrad2);
         color: var(--bgGrad1); }
+
+@media screen and (max-height: 650px) {
+  #chat-DOM {
+    margin: 10%; } }
