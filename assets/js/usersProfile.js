@@ -11,9 +11,11 @@
                 success: function(data){
                     if(data.data.bools == true){
                         $(target).html("UnFollow")
+                        $(target).removeAttr("id","button-id")
                     }
                     else if(data.data.bools == false){
                         $(target).html("Follow")
+                        $(target).attr("id","button-id")
                     }
                 },
                 error: function(err){

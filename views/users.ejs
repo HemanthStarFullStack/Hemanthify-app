@@ -4,13 +4,15 @@
         <img src="<%=users_profile.avatar%>" alt="<%=users_profile.name%>">
     </div>
     <div class="name-con">
-        <%= users_profile.name%>
+        <span>
+            <%= users_profile.name%>
+        </span>
         <%if(locals.user.id !=  users_profile.id){%>
             <%if(bools == true){%>
                 <form action="/users/friends/" method="post" class="friendClass" id="addFriend">
                     <input type="hidden" name = 'senderId' value="<%=locals.user.id%>">
                     <input type="hidden" name= "recieverId" value="<%=users_profile.id%>">
-                    <button class="friendButton">Follow</button>
+                    <button class="friendButton" id="button-id">Follow</button>
                 </form>
             <%}else{%>
                 <form action="/users/friends/" method="post" class="friendClass" id="addFriend">

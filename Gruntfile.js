@@ -19,7 +19,7 @@ module.exports = function(grunt) {
                 expand:true,
                 cwd:gPath,
                 src: '**/*.scss',
-                dest:path.join(__dirname,env.grunt_path_css),
+                dest:path.join(__dirname,"./public/assets/css"),
                 ext: '.css'
               }]
             }
