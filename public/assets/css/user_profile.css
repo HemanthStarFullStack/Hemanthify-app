@@ -24,6 +24,11 @@ body {
     .pro-img-con .img-con img {
       height: 100%;
       width: 100%; }
+  .pro-img-con .name-con {
+    font-family: inherit;
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 2%; }
 
 .total-follower-data a .follower-container {
   display: flex;
