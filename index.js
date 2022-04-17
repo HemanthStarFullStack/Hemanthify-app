@@ -9,6 +9,8 @@ const logger = require('morgan');
 const db  = require("./config/mongoose")
 console.log(db._connectionString);
 const env = require('./config/enivironment');
+const kue = require('kue');
+const CM = require("./workers/commentEmailWorker");
 //session cookie creation
 const session = require("express-session");
 const passport = require("passport");
@@ -59,6 +61,7 @@ app.use(passport.setAuthenticated);
 app.use(flash());
 app.use(customMW.FlashSetUp);
 app.use('/',require('./routes'));
+kue.app.listen(3000);
 app.listen(port,function(err){
     if(err){
         console.log(`server end error: ${err}`);
