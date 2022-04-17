@@ -35,6 +35,7 @@
                 <form action="/users/update/<%=users_profile.id%>" enctype="multipart/form-data" method="post" id="edit-form">
                     <input type="text" name="name" placeholder="Your Name" value="<%=users_profile.name%>">
                     <input type="email" name="email" placeholder="Your Email" value="<%=users_profile.email%>">
+                    <span style="font-weight: 900;">To Update your profile Picture,choose a file</span>
                     <input type="file" name="avatar" placeholder="profile-pic">
                     <button>Update</button>
                 </form>
