@@ -44,7 +44,8 @@ module.exports.profile = async function(req,res){
         user_connections:user,
         all:newUser,
         bools:bools,
-        user_posts:post
+        user_posts:post,
+        totalCount:newUser.length
     });
 }
 module.exports.update = async function(req,res){
