@@ -2,6 +2,7 @@
 <div id="post-<%=post._id%>" class="post-class">
     <div class="post-container">
         <div class="post-top-row">
+            <a href="/users/profile/<%=post.user.id%>/<%=locals.user.id%>">
                 <div class="post-user-profile-pic">
                     <img src="<%= post.user.avatar %>" alt="" >
                 </div>
@@ -9,6 +10,7 @@
                 <div class="post-user-name">
                     <%= post.user.name%>
                 </div>
+            </a>
                 <div class="delete-button">
                     <%if(locals.user && locals.user.id == post.user.id){%>
                         <div class="btn-group dropstart ">

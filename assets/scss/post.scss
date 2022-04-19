@@ -20,6 +20,12 @@
             flex-direction: row;
             width: 100%;
             justify-content: space-between;
+            a{
+                display: flex;
+                text-decoration: none;
+                color: inherit;
+                width: 100%;
+            }
         }
         .post-user-name{
             width: 100%;

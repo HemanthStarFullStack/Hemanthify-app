@@ -17,6 +17,11 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between; }
+    .post-class .post-container .post-top-row a {
+      display: flex;
+      text-decoration: none;
+      color: inherit;
+      width: 100%; }
   .post-class .post-container .post-user-name {
     width: 100%;
     align-self: center;
