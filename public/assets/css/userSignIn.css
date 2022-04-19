@@ -32,23 +32,23 @@ body {
   .userSignIn #mail {
     align-self: flex-start; }
     .userSignIn #mail ::placeholder {
-      color: var(--bgGrad2); }
+      color: var(--bgGrad1); }
     .userSignIn #mail input {
       background: transparent;
       border: none;
       border-bottom: 2px solid black;
-      color: var(--bgGrad2);
+      color: var(--bgGrad1);
       width: 100%;
       font-weight: 1000; }
   .userSignIn #password {
     align-self: flex-end; }
     .userSignIn #password ::placeholder {
-      color: var(--bgGrad2); }
+      color: var(--bgGrad1); }
     .userSignIn #password input {
       background: transparent;
       border: none;
       border-bottom: 2px solid black;
-      color: var(--bgGrad2);
+      color: var(--bgGrad1);
       width: 100%;
       font-weight: 1000; }
 
@@ -117,8 +117,8 @@ body {
     background-color: transparent;
     border-radius: 1rem;
     box-shadow: 4px 4px 60px 11px black;
-    width: 100%;
     height: 55%;
+    width: 100%;
     overflow: hidden;
     margin: 4px; }
   #userSignIn #sign-in-image {
@@ -131,3 +131,8 @@ body {
     background-image: linear-gradient(0deg, var(--bgGrad2) 36%, var(--bgGrad1) 100%);
     padding: 1%;
     min-height: fit-content; } }
+
+@media screen and (max-height: 625px) {
+  #userSignIn {
+    height: 75%;
+    width: 75%; } }

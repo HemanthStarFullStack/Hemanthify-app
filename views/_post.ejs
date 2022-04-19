@@ -49,7 +49,8 @@
                 </div>
                 <div class="comment-area"> 
                     <%if(locals.user) {%>
-                        <div id="comment-form-con" >
+                        <div id="comment-form-con">
+                            <!-- <span><%=post.comments.length%></span> -->
                             <button class="comment-button" data-bs-toggle="collapse" href="#postFormContainer-<%=post._id%>" role="button" aria-expanded="false" aria-controls="postFormContainer"> 
                                 <i class="fa-regular fa-comment"></i>
                             </button>
