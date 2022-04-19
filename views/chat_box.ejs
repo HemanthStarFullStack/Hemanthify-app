@@ -2,8 +2,18 @@
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Rancho&effect=3d">
 <div id="chatPageCon"> 
     <section class="friends-container" id="friends-container">
-        <div class="font-effect-3d friend-heading">
-            People You Can Mesaage
+        <div class="friend-heading">
+            <div id="hover-area">
+                <span id="span1">
+                    i
+                </span> 
+                <span id="span2">
+                    you can only chat with ur followers or with the ones you follow
+                </span>
+            </div>
+            <span class="font-effect-3d headingClass">
+                People You Can Mesaage
+            </span> 
         </div>
         <div id="friends-div"> 
                 <%for(friend of friendData.chatConnection){%>

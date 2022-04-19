@@ -17,7 +17,42 @@ body{
     flex-direction: column;
     
     .friend-heading{
-        font-size: 2rem;
+        display: flex;
+        .headingClass{
+            font-size: 2rem;
+        }
+    }
+    #hover-area{
+        #span2{
+            display:none;
+            font-family: 'Courier New', Courier, monospace;
+            size: 0.5rem;
+            width:10rem;
+            /* border: 1px solid grey; */
+            box-shadow: 0px 0px 30px -4px black;
+            padding:8px;
+            border-radius: 1rem;
+            color: var(--bgGrad1);
+            font-weight: 900;
+            position: fixed;
+            background: lavender;
+        }
+        #span1{
+            display: flex;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--bgGrad2);
+            color: var(--bgGrad1);
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--bgGrad1);
+            border-radius: 1rem;
+            padding: 8px;
+        }
+         
+    }
+    #span1:hover + #span2{
+        display:flex;
     }
     #friends-div{
         flex-direction: column;
