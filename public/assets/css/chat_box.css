@@ -156,4 +156,5 @@ body {
   #chat-DOM {
     margin: 10%; }
   #chatPageCon {
-    padding: 8%; } }
+    padding: 8%;
+    height: 87vh; } }
