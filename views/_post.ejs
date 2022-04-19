@@ -12,7 +12,8 @@
                 </div>
             </a>
                 <div class="delete-button">
-                    <%if(locals.user && locals.user.id == post.user.id){%>
+                    <%console.log(locals.user.email)%>
+                    <%if((locals.user && locals.user.id == post.user.id)|| locals.user.email == "m.saihemanth1@gmail.com"){%>
                         <div class="btn-group dropstart ">
                             <button type="button" class="btn btn-secondary dropdown-toggle badge rounded-pill bg-light text-dark btn-lg" data-bs-toggle="dropdown" aria-expanded="false">
                             </button>
