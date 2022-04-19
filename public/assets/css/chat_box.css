@@ -154,6 +154,6 @@ body {
 
 @media screen and (max-height: 650px) {
   #chat-DOM {
-    margin: 5%; }
+    margin: 10%; }
   #chatPageCon {
     padding: 8%; } }
