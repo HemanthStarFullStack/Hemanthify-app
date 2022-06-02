@@ -166,3 +166,22 @@ body{
         width: 75%;
     }
 }
+@media screen and (max-height:342px) {
+    #userSignIn {
+        height: 80%;
+        width: 75%;
+    }
+    #layout-header{
+        display: none;
+    }
+    #layout-footer{
+        display: none;
+    }
+    #signIn-name{
+        size: 1.2rem;
+    }
+    #google-logo{
+        font-size: 1.5rem;
+    }
+
+}
