@@ -1,4 +1,5 @@
 const post = require("../models/post");
+const { populate } = require("../models/user");
 const user = require("../models/user"); 
 module.exports.home = async function(req,res){
     try{
@@ -10,7 +11,12 @@ module.exports.home = async function(req,res){
             populate:{
                 path:'likes'
             },
-        }).populate('likes')
+        }).populate({
+            path:'likes',
+            populate:{
+                path:'user'
+            }
+        })
         .populate({
             path:'comments',
             populate:{

@@ -39,6 +39,9 @@
                     <small>
                         <a href="/likes/toggle/?id=<%=post._id%>&type=Post" class="toggle-like" data-likes="<%=post.likes.length%>">
                             <%=post.likes.length%>
+                            <%for (data of post.likes){%>
+                                <%=data%>
+                            <%}%>
                             <%if(post.likes.findIndex(like => like.user == locals.user.id)!=-1){%>
                                 <i class="fa-solid fa-heart" ></i>
                             <%}else{%>
