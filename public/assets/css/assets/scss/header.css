@@ -1,0 +1,45 @@
+#layout-header {
+  top: 0px;
+  position: sticky;
+  z-index: 10;
+  width: 100%; }
+  #layout-header nav {
+    height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color: var(--header);
+    box-shadow: 1px 1px 1px 1px #141414; }
+    #layout-header nav .mini-logo {
+      font-family: 'Gloria Hallelujah&', cursive;
+      margin-top: 0.5%;
+      font-size: 1.4rem;
+      font-weight: 1000; }
+    #layout-header nav .chat-room {
+      display: flex;
+      margin-left: auto; }
+    #layout-header nav .auth-links ul {
+      margin-top: 4%;
+      display: flex;
+      list-style: none;
+      padding: 0;
+      gap: 1rem; }
+      #layout-header nav .auth-links ul li {
+        padding: 0;
+        font-size: 1.6rem; }
+      #layout-header nav .auth-links ul .img-con {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 100%;
+        background-color: azure;
+        display: flex; }
+        #layout-header nav .auth-links ul .img-con img {
+          height: 100%;
+          width: 100%;
+          align-self: center;
+          border-radius: 100%; }
+    #layout-header nav a {
+      color: white;
+      text-decoration: none; }
+    #layout-header nav #signIN {
+      font-size: 1rem; }

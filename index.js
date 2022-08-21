@@ -4,10 +4,13 @@ const cookieParser = require('cookie-parser');
 const app = express();
 require('./config/view-helper')(app);
 const port = 8000;
+const path = require("path");
+
 const logger = require('morgan');
 // const expressLayouts = require('express-ejs-layouts');
 const db  = require("./config/mongoose")
 console.log(db._connectionString);
+
 const env = require('./config/enivironment');
 const kue = require('kue');
 const CM = require("./workers/commentEmailWorker");
