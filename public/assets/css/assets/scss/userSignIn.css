@@ -1,0 +1,151 @@
+body {
+  background-image: linear-gradient(0deg, #00203FFF 2%, #ADEFD1FF 74%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+.userSignIn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background-color: transparent;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 60px 11px black;
+  width: auto;
+  height: 55%;
+  overflow: hidden; }
+  .userSignIn .sign-in-image {
+    width: 50%;
+    overflow: hidden; }
+    .userSignIn .sign-in-image img {
+      height: 100%;
+      width: auto; }
+  .userSignIn form {
+    align-items: center; }
+  .userSignIn a {
+    text-decoration: none; }
+  .userSignIn #google-logo {
+    font-size: 2rem;
+    color: var(--bgGrad1); }
+  .userSignIn #mail {
+    align-self: flex-start; }
+    .userSignIn #mail ::placeholder {
+      color: var(--bgGrad1); }
+    .userSignIn #mail input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      color: var(--bgGrad1);
+      width: 100%;
+      font-weight: 1000; }
+  .userSignIn #password {
+    align-self: flex-end; }
+    .userSignIn #password ::placeholder {
+      color: var(--bgGrad1); }
+    .userSignIn #password input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid black;
+      color: var(--bgGrad1);
+      width: 100%;
+      font-weight: 1000; }
+
+#signIn-name {
+  font-size: 3rem;
+  display: flex; }
+
+#formArea {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(0deg, var(--bgGrad2) 36%, var(--bgGrad1) 100%);
+  padding: 1%;
+  min-height: fit-content; }
+  #formArea .form-class {
+    margin-top: 10%; }
+    #formArea .form-class .sign-in-button {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between; }
+      #formArea .form-class .sign-in-button input {
+        background-color: var(--bgGrad1);
+        border-radius: 1rem;
+        color: var(--bgGrad2);
+        width: 100%;
+        font-weight: 1000; }
+      #formArea .form-class .sign-in-button input:hover {
+        background-color: var(--bgGrad2);
+        color: var(--bgGrad1);
+        border: 1px solid var(--bgGrad1);
+        font-weight: 1000; }
+    #formArea .form-class .margin-bottom {
+      margin-bottom: 10%;
+      color: var(--bgGrad2); }
+  #formArea .sign-in-bottom-row {
+    font-weight: 1000; }
+    #formArea .sign-in-bottom-row a {
+      font-weight: 1000;
+      color: var(--bgGrad1);
+      border: 1px solid black;
+      border-radius: 1rem;
+      padding: 2%; }
+    #formArea .sign-in-bottom-row a:hover {
+      font-weight: 1000;
+      color: var(--bgGrad2);
+      border: 1px solid black;
+      border-radius: 1rem;
+      padding: 2%;
+      background-color: var(--bgGrad1); }
+  #formArea .fp {
+    margin-top: 3%;
+    font-weight: 1000; }
+    #formArea .fp a {
+      color: var(--bgGrad1); }
+
+@media screen and (max-width: 624px) {
+  #signIn-name {
+    font-size: 1.5rem;
+    display: flex; }
+  #userSignIn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: transparent;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 60px 11px black;
+    height: 55%;
+    width: 100%;
+    overflow: hidden;
+    margin: 4px; }
+  #userSignIn #sign-in-image {
+    width: 25%;
+    overflow: hidden; }
+  #formArea {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(0deg, var(--bgGrad2) 36%, var(--bgGrad1) 100%);
+    padding: 1%;
+    min-height: fit-content; } }
+
+@media screen and (max-height: 625px) {
+  #userSignIn {
+    height: 75%;
+    width: 75%; } }
+
+@media screen and (max-height: 342px) {
+  #userSignIn {
+    height: 80%;
+    width: 75%; }
+  #layout-header {
+    display: none; }
+  #layout-footer {
+    display: none; }
+  #signIn-name {
+    size: 1.2rem; }
+  #google-logo {
+    font-size: 1.5rem; } }

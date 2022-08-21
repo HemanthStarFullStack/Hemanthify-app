@@ -1,0 +1,24 @@
+:root {
+  --theme: rgb(241, 195, 241);
+  --header: #00203FFF;
+  --profileBackground: cyan;
+  --bgGrad1: #00203FFF;
+  --bgGrad2: #ADEFD1FF;
+  --followBg:#00203FFF; }
+
+body {
+  height: 100%;
+  margin: 0;
+  align-items: center;
+  background-color: white;
+  overflow: unset;
+  font-family: 'Courier New', Courier, monospace; }
+  body .footer-class {
+    position: fixed;
+    bottom: 0;
+    width: 100%; }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent; }

@@ -1,0 +1,7 @@
+#layout-footer {
+  position: fixed;
+  height: 2.5rem;
+  bottom: 0px;
+  width: 100%;
+  background-color: var(--header);
+  color: var(--bgGrad2); }
