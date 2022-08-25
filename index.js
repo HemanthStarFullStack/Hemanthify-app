@@ -25,7 +25,7 @@ const flash = require("connect-flash");
 const http  = require('http');
 const server = http.createServer(app);
 const chatSockets = require('./config/chatSockets').chatSockets(server);
-server.listen(5000);
+server.listen(8443);
 
 console.log('server is listening on 5000');
 
