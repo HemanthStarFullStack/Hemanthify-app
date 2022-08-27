@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require('cookie-parser');
 const app = express();
 require('./config/view-helper')(app);
-const port = 7000;
+const port = 8000;
 const path = require("path");
 
 const logger = require('morgan');
@@ -64,7 +64,7 @@ app.use(passport.setAuthenticated);
 app.use(flash());
 app.use(customMW.FlashSetUp);
 app.use('/',require('./routes'));
-kue.app.listen(3001);
+kue.app.listen(3000);
 app.listen(port,function(err){
     if(err){
         console.log(`server end error: ${err}`);
