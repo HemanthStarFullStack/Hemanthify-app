@@ -35,7 +35,7 @@
             $('#remove2').remove();
             scrollTo();
             removes();
-            this.socket = io.connect('https://hemanthify.in:8443');
+            this.socket = io.connect('http://hemanthify.in:8443');
             if(this.userName){
                 this.connectionHandler();
             }
